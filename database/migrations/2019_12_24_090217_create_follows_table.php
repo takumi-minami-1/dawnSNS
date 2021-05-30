@@ -11,13 +11,19 @@ class CreateFollowsTable extends Migration
      *
      * @return void
      */
+    // 3.3 サイドバー/フォロー,フォロワー数の表示
     public function up()
     {
         Schema::create('follows', function (Blueprint $table) {
             $table->increments('id')->autoIncrement();
-            $table->integer('follow');
-            $table->integer('follower');
+            $table->integer('follow');->unsigned();
+            $table->integer('follower');->unsigned();
             $table->timestamp('created_at')->useCurrent();
+
+            $table->index('follow');
+            $table->index('follower');
+
+            $table->unique(['follow', 'follower']);
         });
     }
 

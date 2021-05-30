@@ -19,48 +19,77 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+    <!-- jQueryの読み込み -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
     <header>
-        <div id="head">
-            <h1><a><img src="images/main_logo.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>{{ Auth::user()->username }} さん<img src="images/dawn.png"></p>
-                    <div>
-                        <ul>
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </div>
+        <div id="boxContainer">
+            <div id="box1">
+                <h1><a href="/top"><img src="images/main_logo.png" class="top-logo"></a></h1>
+            </div>
+            <div id="box2" class="accordion-container">
+                <p class="accordion-title js-accordion-title">{{ Auth::user()->username }} さん</p>
+                <div class="accordion-content">
+                    <ul>
+                        <div class="accordion-content-home">
+                            <li><a href="/top" class="a-home">HOME</a></li>
+                        </div>
+                        <div class="accordion-content-profile">
+                            <li><a href="/profile" class="a-profile">プロフィール編集</a></li>
+                        </div>
+                        <div class="accordion-content-logout">
+                            <li><a href="/logout" class="a-logout">ログアウト</a></li>
+                        </div>
+                    </ul>
                 </div>
+                <!--/accordion-content-->
+            </div>
+            <!-- アイコン -->
+            <div id="box3" class="top-image">
+                <p><img src="images/dawn.png" class="mr-2"></p>
+            </div>
+        </div>
     </header>
     <div id="row">
         <div id="container">
             @yield('content')
         </div>
         <div id="side-bar">
-            <div id="confirm">
-                <p>〇〇さんの</p>
-                <div>
-                    <p>フォロー数</p>
-                    <p>〇〇名</p>
+            <div id="side-bar-confirm">
+                <div id="side-bar-confirm-follows">
+                    <div id="side-bar-confirm-follow">
+                        <p class="side-name">{{ Auth::user()->username }} さんの</p>
+                        <p class="side-follow">フォロー数</p>
+                    </div>
+                    <div id="side-bar-confirm-follow-count">
+                        <p>　{{ $follow_count }} 名</p>
+                    </div>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
-                <div>
-                    <p>フォロワー数</p>
-                    <p>〇〇名</p>
+                <div id="side-bar-confirm-follow-list">
+                    <p class="btn"><a href="/follow-list" class="side-btn side-btn-url">フォローリスト</a></p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <div id="side-bar-confirm-followers">
+                    <div id="side-bar-confirm-follower">
+                        <p>フォロワー数</p>
+                    </div>
+                    <div id="side-bar-confirm-follower-count">
+                        <p>{{ $follower_count }} 名</p>
+                    </div>
+                </div>
+                <div id="side-bar-confirm-follower-list">
+                    <p class="btn"><a href="follower-list" class="side-btn side-btn-url">フォロワーリスト</a></p>
+                </div>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <div id="side-bar-confirm-search">
+                <p class="btn"><a href="" class="side-btn side-btn-url">ユーザー検索</a></p>
+            </div>
         </div>
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="{{ asset('js/style.js') }}"></script>
     <script src="JavaScriptファイルのURL"></script>
 </body>
 
