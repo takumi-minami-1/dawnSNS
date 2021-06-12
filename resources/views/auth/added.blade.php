@@ -2,13 +2,35 @@
 
 @section('content')
 
-<div id="clear">
-  <p>{{ $user_name->username }}さん</p>
-  <p>ようこそ！DAWNSNSへ！</p>
-  <p>ユーザー登録が完了しました。</p>
-  <p>さっそく、ログインをしてみましょう。</p>
+<!-- 2.x.2 登録完了画面のレイアウト -->
+<header>
+  <div class="top-logo-added">
+    <h1><img src="images/main_logo.png"></h1>
+  </div>
+</header>
 
-  <p class="btn"><a href="/login">ログイン画面へ</a></p>
+<div class="container">
+  <div class="formWrapper-added">
+
+    <div class="formLabel-name">
+      <p>{{ $user_name }}さん</p>
+    </div>
+
+    <div class="formLabel-title-added">
+      <p>ようこそ！DAWNSNSへ！</p>
+    </div>
+
+    <div class="formLabel-text1">
+      <p class="formLabel-text-left1">ユーザー登録が完了しました。</p>
+    </div>
+
+    <div class="formLabel-text2">
+      <p class="formLabel-text-left2">さっそく、ログインをしてみましょう</p>
+    </div>
+
+    <p class="added-button"><a href="/login">ログイン画面へ</a></p>
+
+  </div>
 </div>
 
 @endsection

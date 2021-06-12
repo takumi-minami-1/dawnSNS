@@ -1,9 +1,218 @@
 @chasert "utf-8";
 
-html{
-    height: 100%;
+/* 2.x.1 新規登録画面のレイアウト */
+html,body{
+  overflow: hidden
 }
-body{
-    height: 100%;
-    background: #3C4767;
+
+body {
+  width: 100%;
+  height: 100%;
+  background:linear-gradient(180deg, #3C4767 0%, #3C4767 60%, #DF563B 100%) 0% 0% padding-box;
+  opacity: 1;
+  font: Regular 28px/42px Meiryo;
+}
+
+a {
+  color: #fff;
+}
+
+p {
+  text-align: center;
+  font: Regular 28px/42px Meiryo;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+.top-logo-register {
+  margin: 103px auto 0 auto;
+  width: 200px;
+  height: 100px;
+  }
+
+.container {
+  height:  auto;
+  min-height:  750px;
+  width:  100%;
+  vertical-align:  bottom;
+  box-sizing: border-box;
+  float: left;
+}
+
+.formWrapper-register {
+  background: #0000002B 0% 0% no-repeat padding-box;
+  margin: 30px auto 80px auto;
+  border:  1px solid transparent;
+  width: 280px;
+  height: 500px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.formLabel-title-register {
+  margin: 22px auto 48px auto;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-item-box {
+  margin-left: 30px;
+}
+
+.form-item {
+  margin: 0 auto 14px auto;
+  font-size: 14px;
+}
+
+.formText {
+  background: white;
+  border:  1px solid transparent;
+  color: #6C6C6C;
+  height: 29px;
+  width: 212px;
+  margin: 7px auto 0px auto;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.register-button {
+  background: #4B71CAB3;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  width: 106px;
+  border-radius: 6px;
+  margin: 15px 25px auto 142px;
+}
+
+.move-button-register {
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  margin: 61px auto auto auto;
+}
+
+/* 2.x.2 登録完了画面のレイアウト */
+.top-logo-added {
+  margin: 225px auto 0 auto;
+  width: 200px;
+  height: 100px;
+  }
+
+.formWrapper-added {
+  background: #0000002B 0% 0% no-repeat padding-box;
+  margin: 19px auto 201px auto;
+  border:  1px solid transparent;
+  width: 310px;
+  height: 255px;
+  color:white;
+  border-radius: 5px;
+}
+
+.formLabel-name {
+  margin: 29px auto 10px auto;
+  font-size: 18px;
+}
+
+.formLabel-title-added {
+  margin: 4px auto 0 auto;
+  font-size: 14px;
+}
+
+.formLabel-text1 {
+  margin: 27px auto 0 auto;
+  font-size: 14px;
+}
+
+.formLabel-text-left1 {
+width: 200px;
+margin-right: auto;
+margin-left: 35px;
+}
+
+.formLabel-text2 {
+  margin: 4px auto 0 auto;
+  font-size: 14px;
+}
+
+.formLabel-text-left2 {
+width: 250px;
+margin-right: auto;
+margin-left: 30px;
+}
+
+.added-button {
+  background: #4B71CAB3;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 7px 7px 7px 7px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  width: 106px;
+  border-radius: 6px;
+  margin: 45px auto auto auto;
+}
+
+/* 2.x.3 ログイン画面のレイアウト */
+.top-logo-login {
+    margin: 188px auto 0 auto;
+    width: 200px;
+    height: 100px;
+  }
+
+  .sub-title {
+  margin: 0 auto 0 auto;
+  font-size: 28px;
+  color:white
+}
+
+.formWrapper-login {
+  background: #0000002B 0% 0% no-repeat padding-box;
+  margin: 68px auto 71px auto;
+  border:  1px solid transparent;
+  width: 280px;
+  height: 333px;
+  color:white;
+  border-radius: 5px;
+}
+
+.formLabel-title-login {
+  margin: 34px auto 31px auto;
+  font-size: 14px;
+  text-align: center;
+}
+
+.move-button-login {
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  margin: 40px auto auto auto;
+}
+
+.login-button {
+  background: #4B71CAB3;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  width: 106px;
+  border-radius: 6px;
+  margin: 15px 25px auto 142px;
 }

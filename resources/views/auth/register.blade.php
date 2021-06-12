@@ -2,27 +2,51 @@
 
 @section('content')
 
-{!! Form::open() !!}
+<!-- 2.x.1 新規登録画面のレイアウト -->
+<header>
+  <div class="top-logo-register">
+    <h1><img src="images/main_logo.png"></h1>
+  </div>
+</header>
 
-<h2>新規ユーザー登録</h2>
+<div class="container">
+  <div class="formWrapper-register">
+    {!! Form::open() !!}
 
-{{ Form::label('UserName') }}
-{{ Form::text('username',null,['class' => 'input']) }}
+    <div class="formLabel-title-register">
+      <h2>新規ユーザー登録</h2>
+    </div>
 
-{{ Form::label('MailAddress') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
+    <div class="form-item-box">
+      <div class="form-item">
+        {{ Form::label('UserName',null,['class' => 'Label']) }}
+        {{ Form::text('username',null,['class' => 'formText']) }}
+      </div>
 
-{{ Form::label('Password') }}
-{{ Form::text('password',null,['class' => 'input']) }}
+      <div class="form-item">
+        {{ Form::label('MailAddress',null,['class' => 'Label']) }}
+        {{ Form::text('mail',null,['class' => 'formText']) }}
+      </div>
 
-{{ Form::label('Password confirm') }}
-{{ Form::text('password-confirm',null,['class' => 'input']) }}
+      <div class="form-item">
+        {{ Form::label('Password',null,['class' => 'Label']) }}
+        {{ Form::text('password',null,['class' => 'formText']) }}
+      </div>
 
-{{ Form::submit('REGISTER') }}
+      <div class="form-item">
+        {{ Form::label('Password confirm',null,['class' => 'Label']) }}
+        {{ Form::text('password-confirm',null,['class' => 'formText']) }}
+      </div>
+    </div>
 
-<p><a href="/login">ログイン画面へ戻る</a></p>
+    {{ Form::submit('REGISTER',['class' => 'register-button']) }}
 
-{!! Form::close() !!}
+    <div class="move-button-register">
+      <p><a href="/login">ログイン画面へ戻る</a></p>
+    </div>
 
+    {!! Form::close() !!}
+  </div>
+</div>
 
 @endsection
