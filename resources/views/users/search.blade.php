@@ -22,12 +22,12 @@
     </div>
 
     <!-- 5.2.1 ユーザー検索の結果一覧を表示 -->
-
     @if(!empty($data))
     @foreach($data as $item)
     <div class="card">
       <div class="search-list">
         <div id="search-list-image" class="search-list-image">
+
           @if($item->images == 'dawn.png')
           <!-- 初期アイコン -->
           <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
@@ -39,6 +39,7 @@
         <div class="search-list-name">
           <p class="">{{ $item->username }}</p>
         </div>
+        <!-- 5.2.2 フォローする,フォロをーはずすボタンの設置 -->
         <div class="search-list-follow">
           @if (auth()->user()->isFollowing($item->id))
           <form action="{{ route('unfollow', ['id' => $item->id]) }}" method="POST">
@@ -55,14 +56,12 @@
           </form>
           @endif
         </div>
+
       </div>
     </div>
     @endforeach
     @endif
 
-  </div>
-  <div class="pagination">
-    {{ $data->appends(request()->input())->render('pagination::bootstrap-4') }}
   </div>
 </div>
 @endsection

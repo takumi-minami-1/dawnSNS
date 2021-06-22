@@ -33,14 +33,13 @@ class User extends Authenticatable
         return $this->Where('id', '<>', $user_id)->paginate(5);
     }
 
-    //
-    //
+    // 5.2.2 フォローする,フォロをーはずすボタンの設置
     public function followers()
     {
         return $this->belongsToMany(self::class, 'follows', 'follower', 'follow');
     }
 
-    //
+    // 5.2.2 フォローする,フォロをーはずすボタンの設置
     public function follows()
     {
         return $this->belongsToMany(self::class, 'follows', 'follow', 'follower');

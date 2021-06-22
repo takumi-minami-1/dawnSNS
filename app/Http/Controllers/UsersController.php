@@ -16,24 +16,67 @@ class UsersController extends Controller
 
         // 5.2.1 ユーザー検索の結果一覧を表示
         $user = auth()->user();
-        $all_users = $user->getAllUsers(auth()->user()->id);
+        // $users = $user->get();
+        $search1 = $request->input('username');
+        // $all_users = $user->getAllUsers(auth()->user()->id);
 
         if ($request->has('username') && $search1 != '') {
             $users = User::where('username', 'like', "%{$search1}%")->get();
-        } else ($user->getAllUsers(auth()->user()->id));
-
-        $data = $users->paginate(10);
+            $data = $users;
+        } else {
+            $users = $user->getAllUsers(auth()->user()->id);
+            $data = $users;
+        }
 
         return view('users.search', [
             'user'           => $user,
             'users'           => $users,
-            'all_users'  => $all_users,
+            // 'all_users'  => $all_users,
             'follow_count'   => $follow_count,
             'follower_count' => $follower_count,
             'data' => $data,
             'search1' => $search1,
         ]);
     }
+
+    // 5.2.2 フォローする,フォロをーはずすボタンの設置
+    // フォロー
+    public function follow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if (!$is_following) {
+            // フォローしていなければフォローする
+            $follower->follow($user->id);
+            return back();
+        }
+    }
+
+    // フォロー解除
+    public function unfollow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if ($is_following) {
+            // フォローしていればフォローを解除する
+            $follower->unfollow($user->id);
+            return back();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function profile()
     {

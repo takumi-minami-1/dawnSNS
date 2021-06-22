@@ -322,6 +322,7 @@ a.a-logout:hover {
     display: flex;
     flex-flow: row wrap;
     width: 80%;
+
 }
 
 .form-group {
@@ -368,12 +369,11 @@ a.a-logout:hover {
 
 /* 5.1 入力フォームの設置 */
 .search-form-group {
-  width:  1360.5px;
-  height: 107px;
-  vertical-align:  left;
+  vertical-align: left;
   box-sizing: border-box;
   border-bottom: 5px solid #D7D7D7;
   height: 152px;
+  padding-right: 769.5px;
   }
 
 .search-forms {
@@ -389,17 +389,36 @@ a.a-logout:hover {
   font-size: 20px;
   border-radius: 5px;
   border: 1px solid #707070;
+  color: #6C6C6C;
 }
+
 
 .my-search {
   color: #FFFFFF;
   background-color: #3C4767;
-  margin: 47.5px auto auto 15px;
+  margin: 45px auto auto 15px;
   display: inline-block;
-  height: 41px;
-  width: 46px;
-  font-size: 14px;
+  height: 45px;
+  width: 40px;
+  font-size: 25px;
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 5px;
+}
+
+.search-form-name {
+  display: flex;
+}
+
+.search-name {
+  margin: 44px auto auto 115px;
+  color: #6C6C6C;
+  font-size: 18px;
+}
+
+.search-name-search {
+  margin: 44px auto auto 0px;
+  color: #6C6C6C;
+  font-size: 18px;
+  font: Regular 28px/42px Meiryo;
 }

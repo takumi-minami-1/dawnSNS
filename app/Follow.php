@@ -16,4 +16,10 @@ class Follow extends Model
   {
     return $this->where('follower', $user_id)->count();
   }
+
+  // 4.2.1 ログインユーザーのフォローのつぶやき表示を表示
+  // public function followingIds(Int $user_id)
+  // {
+  //   return $this->where('follow', $user_id)->get('follower');
+  // }
 }

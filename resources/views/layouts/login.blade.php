@@ -21,6 +21,8 @@
     <!--OGPタグ/twitterカード-->
     <!-- jQueryの読み込み -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 5.1 入力フォームの設置 -->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 
 <body>
@@ -83,7 +85,7 @@
                 </div>
             </div>
             <div id="side-bar-confirm-search">
-                <p class="btn"><a href="" class="side-btn side-btn-url">ユーザー検索</a></p>
+                <p class="btn"><a href="search" class="side-btn side-btn-url">ユーザー検索</a></p>
             </div>
         </div>
     </div>

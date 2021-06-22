@@ -31,11 +31,15 @@ Route::get('/added', 'Auth\RegisterController@added');
 
 
 //ログイン中のページ
-Route::get('/top', 'PostsController@index');
+Route::resource('top', 'PostsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 
 Route::get('/profile', 'UsersController@profile');
 
-Route::get('/search', 'UsersController@index');
+Route::get('/search', 'UsersController@search')->name('search');
 
 Route::get('/follow-list', 'PostsController@index');
 Route::get('/follower-list', 'PostsController@index');
+
+// 5.2.1 ユーザー検索の結果一覧を表示
+Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
+Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
