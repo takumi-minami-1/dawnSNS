@@ -21,7 +21,7 @@ class UsersController extends Controller
         // $all_users = $user->getAllUsers(auth()->user()->id);
 
         if ($request->has('username') && $search1 != '') {
-            $users = User::where('username', 'like', "%{$search1}%")->get();
+            $users = User::where('username', 'like', "%{$search1}%")->where('id', '<>', $user->id)->get();
             $data = $users;
         } else {
             $users = $user->getAllUsers(auth()->user()->id);
@@ -39,12 +39,13 @@ class UsersController extends Controller
         ]);
     }
 
-    // 5.2.2 フォローする,フォロをーはずすボタンの設置
+    // 5.2.3 followsテーブルへの登録と削除
     // フォロー
     public function follow(User $user)
     {
         $follower = auth()->user();
-        // フォローしているか
+        // // フォローしているか
+        // $is_following = $follower->select('user.id', 'follow.id')->isFollowing($user->id);
         $is_following = $follower->isFollowing($user->id);
         if (!$is_following) {
             // フォローしていなければフォローする
@@ -58,6 +59,7 @@ class UsersController extends Controller
     {
         $follower = auth()->user();
         // フォローしているか
+        // $is_following = $follower->select('user.id', 'follow.id')->isFollowing($user->id);
         $is_following = $follower->isFollowing($user->id);
         if ($is_following) {
             // フォローしていればフォローを解除する

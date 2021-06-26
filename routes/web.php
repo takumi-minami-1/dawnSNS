@@ -40,6 +40,6 @@ Route::get('/search', 'UsersController@search')->name('search');
 Route::get('/follow-list', 'PostsController@index');
 Route::get('/follower-list', 'PostsController@index');
 
-// 5.2.1 ユーザー検索の結果一覧を表示
+// 5.2.3 followsテーブルへの登録と削除
 Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
 Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+// use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable
 {
@@ -33,13 +34,13 @@ class User extends Authenticatable
         return $this->Where('id', '<>', $user_id)->paginate(5);
     }
 
-    // 5.2.2 フォローする,フォロをーはずすボタンの設置
+    // 5.2.3 followsテーブルへの登録と削除
     public function followers()
     {
         return $this->belongsToMany(self::class, 'follows', 'follower', 'follow');
     }
 
-    // 5.2.2 フォローする,フォロをーはずすボタンの設置
+    // 5.2.3 followsテーブルへの登録と削除
     public function follows()
     {
         return $this->belongsToMany(self::class, 'follows', 'follow', 'follower');
@@ -60,12 +61,15 @@ class User extends Authenticatable
     // フォローしているか
     public function isFollowing(Int $user_id)
     {
-        return (bool) $this->follows()->where('follower', $user_id)->first(['id']);
+        // return (bool) $this->follows()->where('follower', $user_id)->first(['id']);
+        // Log::debug((bool) $this->follows()->where('follower', $user_id)->exists());
+        return (bool) $this->follows()->where('follower', $user_id)->exists();
     }
 
     // フォローされているか
     public function isFollowed(Int $user_id)
     {
-        return (bool) $this->followers()->where('follow', $user_id)->first(['id']);
+        // return (bool) $this->followers()->where('follow', $user_id)->first(['id']);
+        return (bool) $this->followers()->where('follow', $user_id)->exists();
     }
 }
