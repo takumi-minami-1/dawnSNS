@@ -23,9 +23,8 @@
     </form>
   </div>
 
-  <p>テスト</p>
-
-  <!--
+  <!-- 4.2 ログインユーザーのつぶやきを表示 -->
+  <!-- 4.2.1 ログインユーザーのフォローのつぶやき表示を表示 -->
   @if (isset($timelines))
   @foreach ($timelines as $timeline)
   <div class="tweets-top">
@@ -61,7 +60,7 @@
     </div>
   </div>
   @endforeach
-  @endif -->
+  @endif
 
 
 
