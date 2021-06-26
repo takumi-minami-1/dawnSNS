@@ -35,11 +35,11 @@
           <p><img src="images/dawn.png" class="rounded-circle"></p>
         </div>
         <div class="timelines">
-          <p class="tweets-top-username">{{ $timeline->user->username }}</p>
+          <p class="tweets-top-username">{{ $timeline->username }}</p>
           <p class="tweets-top-text">{!! nl2br(e($timeline->text)) !!}</p>
         </div>
         <div class="tweets-top-time">
-          <p>{{ $timeline->created_at->format('Y-m-d H:i') }}</p>
+          <p>{{ $timeline->created_at }}</p>
         </div>
       </div>
 

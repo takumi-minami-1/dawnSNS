@@ -7,16 +7,17 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Post;
 use App\Follow;
-use Illuminate\Support\Facades\Log;
+// use Illuminate\Support\Facades\Log;
 
 class PostsController extends Controller
 {
     // 3.3 サイドバー/フォロー,フォロワー数の表示
     // 4.2.1 ログインユーザーのフォローのつぶやき表示を表示
-    public function index(User $user, Follow $follow)
+    public function index(User $user, Follow $follow, Post $post)
     {
-        Log::debug(auth()->user());
+        // Log::debug(auth()->user());
         $user = auth()->user();
+        // dd($user);
         $follow_ids = $follow->followingIds($user->id);
         $following_ids = $follow_ids->pluck('follower')->toArray();
 
