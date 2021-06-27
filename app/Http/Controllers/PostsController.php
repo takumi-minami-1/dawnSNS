@@ -23,6 +23,7 @@ class PostsController extends Controller
 
         $timelines = $post->getTimelines($user->id, $following_ids);
 
+        // var_dump($timelines);
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
 

@@ -35,8 +35,8 @@
           <p><img src="images/dawn.png" class="rounded-circle"></p>
         </div>
         <div class="timelines">
-          <p class="tweets-top-username">{{ $timeline->username }}</p>
-          <p class="tweets-top-text">{!! nl2br(e($timeline->text)) !!}</p>
+          <p class="tweets-top-username">{{ $timeline->user->username }}</p>
+          <p class="tweets-top-text">{!! nl2br(e($timeline->posts)) !!}</p>
         </div>
         <div class="tweets-top-time">
           <p>{{ $timeline->created_at }}</p>
@@ -44,7 +44,7 @@
       </div>
 
 
-      @if ($timeline->user->id === Auth::user()->id)
+      @if ($timeline->id === Auth::user()->id)
 
 
       <div class="tweet-menu">

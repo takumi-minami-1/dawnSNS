@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    // 4.2 ログインユーザーのつぶやきを表示
+    // 4.2.1 ログインユーザーのフォローのつぶやき表示を表示
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     // 4.1 ログインユーザーのつぶやきを登録
     public function postStore(Int $user_id, array $data)
     {
