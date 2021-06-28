@@ -28,7 +28,7 @@
 
       <div class="form-item">
         {{ Form::label('Password',null,['class' => 'Label']) }}
-        {{ Form::password('password',null,['class' => 'formText']) }}
+        {{ Form::password('password',['class' => 'formText']) }}
       </div>
     </div>
 
