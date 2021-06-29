@@ -70,15 +70,17 @@ class UsersController extends Controller
         }
     }
 
-    // 6 フォローリスト,フォロワーリスト
+    // 6.1.1 フォローリスト/フォローユーザーのアイコン一覧の設置
+    // 6.1.2 フォローリスト/フォローユーザーのつぶやき一覧の設置
     public function followList(User $user, Follow $follow, Post $post)
     {
         // Log::debug(auth()->user());
         $user = auth()->user();
-        $follow_ids = $follow->followingIds($user->id);
-        $following_ids = $follow_ids->pluck('follower')->toArray();
+        // $follow_ids = $follow->followingIds($user->id);
+        // $following_ids = $follow_ids->pluck('follower')->toArray();
 
-        $timelines = $post->getTimelines($user->id, $following_ids);
+        // $timelines = $post->getTimelines($user->id, $following_ids);
+        $timelines = $post->getTimeLinesFollow($follow->id);
 
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);

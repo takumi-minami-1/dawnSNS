@@ -1,6 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
+<!-- 6.1.1 フォローリスト/フォローユーザーのアイコン一覧の設置 -->
 <div class="container">
     <div class="row justify-content-center">
         <div class="followList-title">Follow list</div>
@@ -26,6 +27,7 @@
             </div>
         </div>
 
+        <!-- 6.1.2 フォローリスト/フォローユーザーのつぶやき一覧の設置 -->
         @if (isset($timelines))
         @foreach ($timelines as $timeline)
         <div class="tweets-top">
