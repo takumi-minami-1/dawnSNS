@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 use App\Follow;
+// use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
 {
@@ -68,8 +70,30 @@ class UsersController extends Controller
         }
     }
 
+    // 6 フォローリスト,フォロワーリスト
+    public function followList(User $user, Follow $follow, Post $post)
+    {
+        // Log::debug(auth()->user());
+        $user = auth()->user();
+        $follow_ids = $follow->followingIds($user->id);
+        $following_ids = $follow_ids->pluck('follower')->toArray();
 
+        $timelines = $post->getTimelines($user->id, $following_ids);
 
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
+
+        $users = $user->getAllUsers(auth()->user()->id);
+        $data = $users;
+
+        return view('users.followList', [
+            'user'      => $user,
+            'timelines' => $timelines,
+            'follow_count'   => $follow_count,
+            'follower_count' => $follower_count,
+            'data' => $data,
+        ]);
+    }
 
 
 

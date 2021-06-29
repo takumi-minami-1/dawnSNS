@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div id="side-bar-confirm-follow-list">
-                    <p class="btn"><a href="/follow-list" class="side-btn side-btn-url">フォローリスト</a></p>
+                    <p class="btn"><a href="/followList" class="side-btn side-btn-url">フォローリスト</a></p>
                 </div>
                 <div id="side-bar-confirm-followers">
                     <div id="side-bar-confirm-follower">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 <div id="side-bar-confirm-follower-list">
-                    <p class="btn"><a href="follower-list" class="side-btn side-btn-url">フォロワーリスト</a></p>
+                    <p class="btn"><a href="followerList" class="side-btn side-btn-url">フォロワーリスト</a></p>
                 </div>
             </div>
             <div id="side-bar-confirm-search">

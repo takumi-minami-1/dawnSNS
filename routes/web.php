@@ -35,8 +35,9 @@ Route::get('/profile', 'UsersController@profile');
 
 Route::get('/search', 'UsersController@search')->name('search');
 
-Route::get('/follow-list', 'PostsController@index');
-Route::get('/follower-list', 'PostsController@index');
+// 6 フォローリスト,フォロワーリスト
+Route::get('/followList', 'UsersController@followList');
+Route::get('/followerList', 'UsersController@followerList');
 
 // 5.2.3 followsテーブルへの登録と削除
 Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
