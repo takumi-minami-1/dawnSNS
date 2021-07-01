@@ -30,9 +30,17 @@ class Post extends Model
         return $this->whereIn('user_id', $follow_ids)->orderBy('created_at', 'DESC')->paginate(50);
     }
 
-    public function getTimeLinesFollow(Int $follow_ids)
+    // 6.1.2 フォローリスト/フォローユーザーのつぶやき一覧の設置
+    public function getTimeLinesFollow(Int $follow_id, array $follow_ids)
     {
-        // return $this->whereIn('user_id')->orderBy('created_at', 'DESC')->paginate(50);
-        return $this->whereIn('id', $follow_ids)->orderBy('created_at', 'DESC');
+        $follow_ids[] = $follow_id;
+        return $this->where('user_id', $follow_ids)->orderBy('created_at', 'DESC')->get();
+    }
+
+    // 6.2.2 フォロワーリスト/フォロワーユーザーのつぶやき一覧の設置
+    public function getTimelineFollower(Int $follower_id, array $follower_ids)
+    {
+        $follower_ids[] = $follower_id;
+        return $this->where('user_id', $follower_ids)->orderBy('created_at', 'DESC')->get();
     }
 }

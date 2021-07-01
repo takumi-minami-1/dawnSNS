@@ -1,16 +1,16 @@
 @extends('layouts.login')
 
 @section('content')
-<!-- 6.1.1 フォローリスト/フォローユーザーのアイコン一覧の設置 -->
+<!-- 6.2.1 フォロワーリスト/フォロワーユーザーのアイコン一覧の設置 -->
 <div class="container">
     <div class="row justify-content-center">
-        <div class="followList-title">Follow list</div>
+        <div class="followList-title">Follower list</div>
         <div class="card-body">
             <div class="followList-form-group">
                 @if(!empty($data))
                 @foreach($data as $item)
                 <div class="followList-icon-list">
-                    @if (auth()->user()->isFollowing($item->id))
+                    @if (auth()->user()->isFollowed($item->id))
                     <div id="followList-icon" class="followList-icon">
                         @if($item->images == 'dawn.png')
                         <!-- 初期アイコン -->
@@ -27,27 +27,27 @@
             </div>
         </div>
 
-        <!-- 6.1.2 フォローリスト/フォローユーザーのつぶやき一覧の設置 -->
-        @if (isset($timelines))
-        @foreach ($timelines as $timeline)
+        <!-- 6.2.2 フォロワーリスト/フォロワーユーザーのつぶやき一覧の設置 -->
+        @if (isset($timeline))
+        @foreach ($timeline as $time)
         <div class="tweets-top">
             <div class="card">
                 <div class="tweet-timelines">
                     <div id="top-image2" class="top-image2">
-                        @if($timeline->user->images == 'dawn.png')
+                        @if($time->user->images == 'dawn.png')
                         <!-- 初期アイコン -->
-                        <p><a href="{{ url('users/' .$timeline->user->id) }}"><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('images/' .$time->user->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$timeline->user->id) }}"><img src="{{ asset('storage/images/' .$timeline->user->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('storage/images/' .$time->user->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     <div class="timelines">
-                        <p class="tweets-top-username">{{ $timeline->user->username }}</p>
-                        <p class="tweets-top-text">{{ $timeline->posts }}</p>
+                        <p class="tweets-top-username">{{ $time->user->username }}</p>
+                        <p class="tweets-top-text">{{ $time->posts }}</p>
                     </div>
                     <div class="tweets-top-time">
-                        <p class="">{{ $timeline->created_at }}</p>
+                        <p class="">{{ $time->created_at }}</p>
                     </div>
                 </div>
             </div>
@@ -58,6 +58,6 @@
     </div>
     <!-- <div class="my-4 d-flex justify-content-center">
     </div> -->
-</div>
 
+</div>
 @endsection

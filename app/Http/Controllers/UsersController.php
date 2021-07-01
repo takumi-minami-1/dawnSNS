@@ -76,11 +76,11 @@ class UsersController extends Controller
     {
         // Log::debug(auth()->user());
         $user = auth()->user();
-        // $follow_ids = $follow->followingIds($user->id);
-        // $following_ids = $follow_ids->pluck('follower')->toArray();
+        $follow_ids = $follow->followingIds($user->id);
+        $following_ids = $follow_ids->pluck('follower')->toArray();
 
         // $timelines = $post->getTimelines($user->id, $following_ids);
-        $timelines = $post->getTimeLinesFollow($follow->id);
+        $timelines = $post->getTimeLinesFollow($user->id, $following_ids);
 
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
@@ -97,6 +97,30 @@ class UsersController extends Controller
         ]);
     }
 
+    // 6.2.1 フォロワーリスト/フォロワーユーザーのアイコン一覧の設置
+    // 6.2.2 フォロワーリスト/フォロワーユーザーのつぶやき一覧の設置
+    public function followerList(User $user, Follow $follow, Post $post)
+    {
+        $user = auth()->user();
+        $follower_ids = $follow->followedIds($user->id);
+        $followed_ids = $follower_ids->pluck('follow')->toArray();
+
+        $timeline = $post->getTimelineFollower($user->id, $followed_ids);
+
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
+
+        $users = $user->getAllUsers(auth()->user()->id);
+        $data = $users;
+
+        return view('users.followerList', [
+            'user'      => $user,
+            'timeline' => $timeline,
+            'follow_count'   => $follow_count,
+            'follower_count' => $follower_count,
+            'data' => $data
+        ]);
+    }
 
 
 
