@@ -43,4 +43,15 @@ class Post extends Model
         $follower_ids[] = $follower_id;
         return $this->where('user_id', $follower_ids)->orderBy('created_at', 'DESC')->get();
     }
+
+    // 6.3 ユーザーのアイコンから相手のプロフィールページへの遷移
+    public function getUserTimeLine(Int $user_id)
+    {
+        return $this->where('user_id', $user_id)->orderBy('created_at', 'DESC')->get();
+    }
+
+    public function getPostCount(Int $user_id)
+    {
+        return $this->where('user_id', $user_id)->count();
+    }
 }

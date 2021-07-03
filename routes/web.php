@@ -31,8 +31,6 @@ Route::get('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::resource('top', 'PostsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 
-Route::get('/profile', 'UsersController@profile');
-
 Route::get('/search', 'UsersController@search')->name('search');
 
 // 6 フォローリスト,フォロワーリスト
@@ -42,3 +40,8 @@ Route::get('/followerList', 'UsersController@followerList');
 // 5.2.3 followsテーブルへの登録と削除
 Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
 Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
+
+// 6.3 ユーザーのアイコンから相手のプロフィールページへの遷移
+// Route::get('/profile', 'UsersController@profile');
+// Route::resource('users', 'UsersController', ['only' => ['index', 'view', 'show', 'edit', 'update']]);
+Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
