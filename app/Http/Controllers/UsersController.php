@@ -130,21 +130,32 @@ class UsersController extends Controller
         $is_followed = $login_user->isFollowed($user->id);
         $timelines = $post->getUserTimeLine($user->id);
         $post_count = $post->getPostCount($user->id);
-        $follow_count = $follow->getFollowCount($user->id);
-        $follower_count = $follow->getFollowerCount($user->id);
+        $follow_count = $follow->getFollowCount($login_user->id);
+        $follower_count = $follow->getFollowerCount($login_user->id);
 
         return view('users.show', [
             'user'           => $user,
             'is_following'   => $is_following,
             'is_followed'    => $is_followed,
             'timelines'      => $timelines,
-            'tweet_count'    => $post_count,
+            'post_count'    => $post_count,
             'follow_count'   => $follow_count,
             'follower_count' => $follower_count
         ]);
     }
 
+    // 8.1 ログインユーザーの情報を取得
+    public function edit(User $user, Follow $follow)
+    {
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
 
+        return view('users.edit', [
+            'user' => $user,
+            'follow_count'   => $follow_count,
+            'follower_count' => $follower_count
+        ]);
+    }
 
 
 

@@ -42,6 +42,7 @@ Route::post('users/{user}/follow', 'UsersController@follow')->name('follow');
 Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfollow');
 
 // 6.3 ユーザーのアイコンから相手のプロフィールページへの遷移
-// Route::get('/profile', 'UsersController@profile');
 // Route::resource('users', 'UsersController', ['only' => ['index', 'view', 'show', 'edit', 'update']]);
 Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
+
+// Route::get('/profile', 'UsersController@profile');
