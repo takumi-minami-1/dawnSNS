@@ -72,4 +72,31 @@ class User extends Authenticatable
         // return (bool) $this->followers()->where('follow', $user_id)->first(['id']);
         return (bool) $this->followers()->where('follow', $user_id)->exists();
     }
+
+    // 8 プロフィール
+    public function updateProfile(array $params)
+    {
+        if (isset($params['images'])) {
+            $file_name = $params['images']->store('public/images/');
+
+            $this::where('id', $this->id)
+                ->update([
+                    'username'   => $params['username'],
+                    'images' => basename($file_name),
+                    'mail'         => $params['mail'],
+                    'new_password' => $params['password'],
+                    'bio'         => $params['bio'],
+                ]);
+        } else {
+            $this::where('id', $this->id)
+                ->update([
+                    'username'   => $params['username'],
+                    'mail'         => $params['mail'],
+                    'new_password' => $params['password'],
+                    'bio'         => $params['bio'],
+                ]);
+        }
+
+        return;
+    }
 }

@@ -157,7 +157,57 @@ class UsersController extends Controller
         ]);
     }
 
+    public function update(Request $request, User $user)
+    {
+        if ('PUT' == $request->input('_method')) {
+            $data = $request->all();
 
+            $validator = Validator::make($data, [
+                'username'   => ['required', 'min:4', 'max:12', Rule::unique('users')->ignore($user->id)],
+                'mail'         => ['required', 'min:4', 'max:12', Rule::unique('users')->ignore($user->id)],
+                'password_raw'   => ['required', 'min:4', 'max:12', 'alpha_num', Rule::unique('users')->ignore($user->id)],
+                'bio'   => ['nullable', 'max:200'],
+                'images' => ['nullable', 'file', 'image', 'mimes:png,jpg,bmp,gif,svg'],
+            ]);
+
+            if ($validator->fails()) {
+                return redirect('users/' . $user->id . '/edit')
+                    ->withErrors($validator)
+                    ->withInput();
+            } else {
+
+                if (isset($data["images"])) {
+                    $file_name = $data["images"]->store('public/images/');
+
+                    \DB::table('users')
+                        ->where('id', $user->id)
+                        ->update([
+                            'username' => $data["username"],
+                            'mail' => $data["mail"],
+                            'password_raw' => $data['password_raw'],
+                            'password' => bcrypt($data['password_raw']),
+                            'bio' => $data["bio"],
+                            'images' => basename($file_name),
+                        ]);
+
+                    return redirect('users/' . $user->id);
+                } else {
+
+                    \DB::table('users')
+                        ->where('id', $user->id)
+                        ->update([
+                            'username' => $data["username"],
+                            'mail' => $data["mail"],
+                            'password_raw' => $data['password_raw'],
+                            'password' => bcrypt($data['password_raw']),
+                            'bio' => $data["bio"],
+                        ]);
+
+                    return redirect('users/' . $user->id);
+                }
+            }
+        }
+    }
 
 
 
