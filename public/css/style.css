@@ -316,12 +316,14 @@ a.a-logout:hover {
     vertical-align:  bottom;
     box-sizing: border-box;
     float:  left;
+
 }
 
 .row {
     display: flex;
     flex-flow: row wrap;
     width: 80%;
+
 
 }
 
@@ -368,16 +370,35 @@ a.a-logout:hover {
 }
 
 /* 5.1 入力フォームの設置 */
+
+.container-search {
+    height:  auto;
+    min-height:  750px;
+    width:  80%;
+    vertical-align:  bottom;
+    box-sizing: border-box;
+    float:  left;
+    padding-right: 20px;
+}
+
+
+
+
+
 .search-form-group {
+    /* display: flex; */
+   width:  1680px;
   vertical-align: left;
   box-sizing: border-box;
   border-bottom: 5px solid #D7D7D7;
   height: 152px;
-  padding-right: 769.5px;
+  /* padding-right: 769.5px; */
   }
 
 .search-forms {
   display: flex;
+  width:  1360.5px;
+
 }
 
 .search-form {
@@ -406,7 +427,7 @@ a.a-logout:hover {
   border-radius: 5px;
 }
 
-.search-form-name {
+.search-name-group {
   display: flex;
 }
 
@@ -422,3 +443,28 @@ a.a-logout:hover {
   font-size: 18px;
   font: Regular 28px/42px Meiryo;
 }
+
+/* 5.2.1 ユーザー検索の結果一覧を表示 */
+.search-list {
+  display: flex;
+}
+
+.search-list-image {
+  margin: 28.5px 0px 0px 85px;
+}
+
+.search-list-name {
+  margin: 44px auto 0px 15px;
+  color: #6C6C6C;
+  font-size: 18px;
+  font: Regular 28px/42px Meiryo;
+}
+
+.search-list-follow {
+  margin: 32.5px 250px 0px auto;
+}
+
+
+
+/* search-btn-follow1 search-btn-primary-follow1 */
+/* search-btn-follow2 search-btn-primary-follow2 */
