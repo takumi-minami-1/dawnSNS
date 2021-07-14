@@ -20,11 +20,11 @@
         <div class="form-group-text">
           <textarea class="form-control" name="posts" style="border:none;" required rows="4" placeholder="何をつぶやこうか...?">{{ old('posts') }}</textarea>
 
-          @error('posts')
+          <!-- @error'posts'
           <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
+            <strong> $message </strong>
           </span>
-          @enderror
+          @enderror -->
 
         </div>
         <div class="form-group-icon">
@@ -60,8 +60,7 @@
       </div>
 
 
-      @if ($timeline->id === Auth::user()->id)
-
+      @if ($timeline->id === auth()->user()->id)
 
       <div class="tweet-menu">
 

@@ -48,5 +48,14 @@ class PostsController extends Controller
         $post->postStore($user->id, $data);
 
         return redirect('top');
+
+        // 4.x.3 投稿のバリデーション
+        if ($validator->fails()) {
+            return redirect('top');
+        } else {
+            return redirect('top')
+                ->withErrors($validator)
+                ->withInput();
+        }
     }
 }
