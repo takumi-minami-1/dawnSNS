@@ -44,18 +44,17 @@ class PostsController extends Controller
             'posts' => ['required', 'string', 'max:150']
         ]);
 
-        $validator->validate();
-        $post->postStore($user->id, $data);
-
-        return redirect('top');
+        // $validator->validate();
 
         // 4.x.3 投稿のバリデーション
+        // dd($validator->fails());
         if ($validator->fails()) {
-            return redirect('top');
-        } else {
             return redirect('top')
                 ->withErrors($validator)
                 ->withInput();
+        } else {
+            $post->postStore($user->id, $data);
+            return redirect('top');
         }
     }
 }
