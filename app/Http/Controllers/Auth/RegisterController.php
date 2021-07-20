@@ -96,6 +96,7 @@ class RegisterController extends Controller
                 ->withErrors($validator);
             // ->withInput();
         } else {
+            $this->create($data);
             return redirect('added');
         }
     }
