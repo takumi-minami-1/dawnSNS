@@ -88,16 +88,17 @@ class RegisterController extends Controller
         // return view('auth.register');
 
         // 4.x.4 新規登録のバリデーション
-        $data = $request->input();
-        $validator = $this->validator($data);
+        if ($request->isMethod('post')) {
+            $data = $request->input();
+            $validator = $this->validator($data);
 
-        if ($validator->fails()) {
-            return view('auth.register')
-                ->withErrors($validator);
-            // ->withInput();
-        } else {
-            $this->create($data);
-            return redirect('added');
+            if ($validator->fails()) {
+                return redirect('/register')
+                    ->withErrors($validator);
+            } else {
+                $this->create($data);
+                return redirect('added');
+            }
         }
     }
 
