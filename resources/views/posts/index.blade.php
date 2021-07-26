@@ -88,11 +88,11 @@
 
                 <!-- 6.モーダルのフッタ -->
                 <div class="edit-modal-footer">
-                  <p><a id="modal-close" class="button-link" onclick="editModal({{$timeline->id}})"></a></p>
+                  <p><a id="modal-close" onclick="editModal({{$timeline->id}})"></a></p>
                   <form method="post" action="{{ action('PostsController@update', $user->id) }}" name="text">
                     @csrf
                     @method('PUT')
-                    <input src='images/edit.png' type="image" class="icon" onclick="editModal({{$timeline->id}})"></input>
+                    <input src='images/edit.png' type="image" onclick="editModal({{$timeline->id}})"></input>
                   </form>
                 </div>
               </div>
@@ -107,7 +107,7 @@
 
         <!-- 2.モーダルの配置 -->
         <div class="delete-modal deleteModal-{{ $timeline->id }}" tabindex="-1">
-          <form method="POST" action="{{ url('posts/' .$timeline->id) }}" class="mb-0">
+          <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
             <div class="delete-modal-dialog">
               <!-- 3.モーダルのコンテンツ -->
               <div class="delete-modal-content">

@@ -93,13 +93,14 @@ class RegisterController extends Controller
             $validator = $this->validator($data);
 
             if ($validator->fails()) {
-                return redirect('/register')
+                return redirect('register')
                     ->withErrors($validator);
             } else {
                 $this->create($data);
                 return redirect('added');
             }
         }
+        return view('auth.register');
     }
 
     public function added()
