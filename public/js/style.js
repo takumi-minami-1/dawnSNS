@@ -7,3 +7,20 @@ jQuery(function ($) {
   });
 
 });
+
+// 4.x.1 モーダルの設置
+$(function () {
+  $('.modalopen').each(function () {
+    $(this).on('click', function () {
+      var target = $(this).data('target');
+      var modal = document.getElementById(target);
+      console.log(modal);
+      $(modal).fadeIn();
+      return false;
+    });
+  });
+  // $('.modal-main').not('.form-control-edit .image-modal').on('click', function () {
+  //   $('.js-modal').fadeOut();
+  //   return false;
+  // });
+});

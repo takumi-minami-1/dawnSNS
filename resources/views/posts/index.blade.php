@@ -19,13 +19,6 @@
         </div>
         <div class="form-group-text">
           <textarea class="form-control" name="posts" style="border:none;" required rows="4" placeholder="何をつぶやこうか...?">{{ old('posts') }}</textarea>
-
-          <!-- @error'posts'
-          <span class="invalid-feedback" role="alert">
-            <strong> $message </strong>
-          </span>
-          @enderror -->
-
         </div>
         <div class="form-group-icon">
           <input src="images/post.png" type="image"></input>
@@ -59,78 +52,51 @@
         </div>
       </div>
 
-
-      @if ($timeline->id === auth()->user()->id)
+      <!-- 4.x.1 モーダルの設置 -->
+      @if ($timeline->user->id === auth()->user()->id)
 
       <div class="tweet-menu">
-
-        {{-- ここから --}}
-        <!-- 1.モーダル表示のためのボタン -->
-        <input src='images/edit.png' type="image" class="edit-menu-icon" data-toggle="modal" onclick="editModal({{$timeline->id}})"></input>
-
-        <!-- 2.モーダルの配置 -->
-        <div class="edit-modal editModal-{{ $timeline->id }}" tabindex="-1" id="modal-content">
-          <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
-            <div class="edit-modal-dialog">
-              <!-- 3.モーダルのコンテンツ -->
-              <div class="edit-modal-content">
-
-                <!-- 5.モーダルのボディ -->
-                <div class="edit-modal-body">
-                  <textarea class="form-control-edit @error('posts') is-invalid @enderror" name="text" required autocomplete="text" rows="4">{{ old('posts') ? : $timeline->posts }}</textarea>
-
-                  @error('posts')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                  @enderror
-                </div>
-
-                <!-- 6.モーダルのフッタ -->
-                <div class="edit-modal-footer">
-                  <p><a id="modal-close" onclick="editModal({{$timeline->id}})"></a></p>
-                  <form method="post" action="{{ action('PostsController@update', $user->id) }}" name="text">
-                    @csrf
-                    @method('PUT')
-                    <input src='images/edit.png' type="image" onclick="editModal({{$timeline->id}})"></input>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </form>
+        <!-- 編集 -->
+        <!-- ライフスタイルボックス -->
+        <div class="life-type">
+          <a href="" class="modalopen" data-target="modal01">
+            <input src='images/edit.png' type="image" class="edit-menu-icon"></input>
+          </a>
         </div>
-        {{-- ここまで --}}
-
-        {{-- ここから --}}
-        <!-- 1.モーダル表示のためのボタン -->
-        <input src='images/trash_h.png' type="image" class="delete-menu-icon" data-toggle="modal" onclick="deleteModal({{$timeline->id}})"></input>
-
-        <!-- 2.モーダルの配置 -->
-        <div class="delete-modal deleteModal-{{ $timeline->id }}" tabindex="-1">
-          <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
-            <div class="delete-modal-dialog">
-              <!-- 3.モーダルのコンテンツ -->
-              <div class="delete-modal-content">
-
-                <!-- 5.モーダルのボディ -->
-                <div class="delete-modal-body">
-                  <p>このつぶやきを削除します。よろしいでしょうか？</p>
-                </div>
-
-                <!-- 6.モーダルのフッタ -->
-                <div class="delete-modal-footer">
-                  <form method="post" action="{{ action('PostsController@destroy', $user->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button class="delete-btn delete-btn-primary" onclick="deleteModal({{$timeline->id}})">OK</button>
-                  </form>
-                  <button type="button" class="delete-btn delete-btn-default" data-dismiss="modal" onclick="deleteModal({{$timeline->id}})">キャンセル</button>
-                </div>
-              </div>
+        <!-- モーダルの中身 -->
+        <div class="modal-main js-modal" id="modal01">
+          <div class="inner">
+            <div class="inner-content">
+              <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
+                <textarea class="form-control-edit" value="{{ $timeline->posts }}"></textarea>
+                <input src='images/edit.png' type="image" class="image-modal"></input>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
-        {{-- ここまで --}}
+
+        <!-- 削除 -->
+        <!-- ライフスタイルボックス -->
+
+        <!-- <div class="life-type">
+          <a href="" class="modalopen" data-target="modal02">
+            <input src='images/trash_h.png' type="image" class="delete-menu-icon"></input>
+          </a>
+        </div> -->
+
+        <!-- モーダルの中身 -->
+
+        <!-- <div class="modal-main js-modal" id="modal02">
+          <div class="inner">
+            <div class="inner-content">
+              <img src="" class="image-modal" href="">
+            </div>
+          </div>
+        </div> -->
+
+
+
+
 
 
 
