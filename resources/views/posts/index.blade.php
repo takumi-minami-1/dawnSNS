@@ -59,7 +59,7 @@
         <!-- 編集 -->
         <!-- ライフスタイルボックス -->
         <div class="life-type">
-          <a href="" class="modalopen" data-target="modal01">
+          <a class="modalopen" data-target="{{ $timeline->id }}">
             <input src='images/edit.png' type="image" class="edit-menu-icon"></input>
           </a>
         </div>
@@ -68,7 +68,7 @@
           <div class="inner">
             <div class="inner-content">
               <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
-                <textarea class="form-control-edit" value="{{ $timeline->posts }}"></textarea>
+                <input type="text" class="form-control-edit" value="{{ $timeline->posts }}">
                 <input src='images/edit.png' type="image" class="image-modal"></input>
               </form>
             </div>
