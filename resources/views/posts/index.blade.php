@@ -70,10 +70,10 @@
             <div class="inner-content">
 
               <!-- 更新処理の実装 -->
-              {!! Form::open(['url' => 'posts/' .$timeline->id]) !!}
+              {!! Form::open(['url' => 'top']) !!}
               <div class="form-group">
-                {!! Form::hidden('id', $post->id) !!}
-                {!! Form::input('text', 'upPost', $post->post, ['required', 'class' => 'form-control-edit']) !!}
+                {!! Form::hidden('id', $timeline->id) !!}
+                {!! Form::input('text', 'upPost', $timeline->posts, ['required', 'class' => 'form-control-edit']) !!}
               </div>
               <input src='images/edit.png' type="image" class="image-modal"></input>
               {!! Form::close() !!}
