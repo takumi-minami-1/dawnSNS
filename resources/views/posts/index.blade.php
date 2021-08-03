@@ -59,18 +59,29 @@
         <!-- 編集 -->
         <!-- ライフスタイルボックス -->
         <div class="life-type">
+          <!-- <a class="modalopen" data-target="modal01"> -->
           <a class="modalopen" data-target="{{ $timeline->id }}">
             <input src='images/edit.png' type="image" class="edit-menu-icon"></input>
           </a>
         </div>
         <!-- モーダルの中身 -->
-        <div class="modal-main js-modal" id="modal01">
+        <div class="modal-main js-modal" id="{{ $timeline->id }}">
           <div class="inner">
             <div class="inner-content">
-              <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
-                <input type="text" class="form-control-edit" value="{{ $timeline->posts }}">
-                <input src='images/edit.png' type="image" class="image-modal"></input>
-              </form>
+
+              <!-- 更新処理の実装 -->
+              {!! Form::open(['url' => 'posts/' .$timeline->id]) !!}
+              <div class="form-group">
+                {!! Form::hidden('id', $post->id) !!}
+                {!! Form::input('text', 'upPost', $post->post, ['required', 'class' => 'form-control-edit']) !!}
+              </div>
+              <input src='images/edit.png' type="image" class="image-modal"></input>
+              {!! Form::close() !!}
+
+              <!-- <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
+                <input type="text" name="upPost" class="form-control-edit" value="{{ $timeline->posts }}">
+                <input src='images/edit.png' type="image" class="image-modal"></input> -->
+              <!-- </form> -->
             </div>
           </div>
         </div>

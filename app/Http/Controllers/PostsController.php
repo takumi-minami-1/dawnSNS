@@ -57,4 +57,19 @@ class PostsController extends Controller
             return redirect('top');
         }
     }
+
+    // 4.x.1 モーダルの設置
+    // 更新処理の実装
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+        \DB::table('posts')
+            ->where('id', $id)
+            ->update(
+                ['post' => $up_post]
+            );
+
+        return redirect('top');
+    }
 }
