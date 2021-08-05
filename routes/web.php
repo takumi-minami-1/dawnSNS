@@ -33,7 +33,7 @@ Route::resource('top', 'PostsController', ['only' => ['index', 'create', 'store'
 
 // 4.x.1 モーダルの設置
 // Route::get('/top', 'UsersController@update');
-Route::post('/top', 'UsersController@update');
+// Route::post('/top', 'UsersController@update');
 
 Route::get('/search', 'UsersController@search')->name('search');
 
