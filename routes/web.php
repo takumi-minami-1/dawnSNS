@@ -29,7 +29,11 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-Route::resource('top', 'PostsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
+Route::resource('top', 'PostsController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'destroy']]);
+
+// 4.x.1 モーダルの設置
+// Route::get('/top', 'UsersController@update');
+Route::post('/top', 'UsersController@update');
 
 Route::get('/search', 'UsersController@search')->name('search');
 
