@@ -70,8 +70,8 @@
             <div class="inner-content">
 
               <!-- 更新処理の実装 -->
-              {!! Form::open(['url' => 'top']) !!}
-              <div class="form-group">
+              {!! Form::open(['url' => 'update']) !!}
+              <div class="edit-modal">
                 {!! Form::hidden('id', $timeline->id) !!}
                 {!! Form::input('text', 'upPost', $timeline->posts, ['required', 'class' => 'form-control-edit']) !!}
               </div>

@@ -67,7 +67,7 @@ class PostsController extends Controller
         \DB::table('posts')
             ->where('id', $id)
             ->update(
-                ['post' => $up_post]
+                ['posts' => $up_post]
             );
 
         return redirect('top');
