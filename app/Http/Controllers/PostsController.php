@@ -72,4 +72,15 @@ class PostsController extends Controller
 
         return redirect('top');
     }
+
+    // 削除処理の実装
+    public function delete(Post $post)
+    {
+        $user = auth()->user();
+        \DB::table('posts')
+            ->where($user->id, $post->id)
+            ->delete();
+
+        return redirect('top');
+    }
 }

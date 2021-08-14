@@ -77,35 +77,11 @@
               </div>
               <input src='images/edit.png' type="image" class="image-modal"></input>
               {!! Form::close() !!}
-
-              <!-- <form method="POST" action="{{ url('posts/' .$timeline->id) }}">
-                <input type="text" name="upPost" class="form-control-edit" value="{{ $timeline->posts }}">
-                <input src='images/edit.png' type="image" class="image-modal"></input> -->
-              <!-- </form> -->
             </div>
           </div>
         </div>
 
-        <!-- 削除 -->
-        <!-- ライフスタイルボックス -->
-
-        <!-- <div class="life-type">
-          <a href="" class="modalopen" data-target="modal02">
-            <input src='images/trash_h.png' type="image" class="delete-menu-icon"></input>
-          </a>
-        </div> -->
-
-        <!-- モーダルの中身 -->
-
-        <!-- <div class="modal-main js-modal" id="modal02">
-          <div class="inner">
-            <div class="inner-content">
-              <img src="" class="image-modal" href="">
-            </div>
-          </div>
-        </div> -->
-
-
+        <input src='images/trash_h.png' type="image" class="delete-menu-icon" href="/delete"></input>
 
 
 
