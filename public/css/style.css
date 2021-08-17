@@ -381,10 +381,6 @@ a.a-logout:hover {
     padding-right: 20px;
 }
 
-
-
-
-
 .search-form-group {
     /* display: flex; */
    width:  1680px;
@@ -412,7 +408,6 @@ a.a-logout:hover {
   border: 1px solid #707070;
   color: #6C6C6C;
 }
-
 
 .my-search {
   color: #FFFFFF;
@@ -498,3 +493,5 @@ a.a-logout:hover {
   margin: 0;
   padding: 0;
 }
+
+/* 4.x.2 レイアウトの修正 */
