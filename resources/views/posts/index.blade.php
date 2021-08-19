@@ -84,7 +84,7 @@
         <!-- <input src='images/trash_h.png' type="image" class="delete-menu-icon" href="/delete"></input> -->
         <!-- <a class="delete-menu-icon" src='images/trash_h.png' type="image" href="/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a> -->
 
-        <a href="/delete"><img src="images/trash_h.png" alt="削除" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a>
+        <a href="/{{$timeline->id}}/delete"><img src="images/trash_h.png" alt="削除" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a>
 
 
 

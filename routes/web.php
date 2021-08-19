@@ -33,8 +33,8 @@ Route::resource('top', 'PostsController', ['only' => ['index', 'create', 'store'
 
 // 4.x.1 モーダルの設置
 Route::post('update', 'PostsController@update');
-Route::get('delete', 'PostsController@delete');
-Route::post('delete', 'PostsController@delete');
+Route::get('{id}/delete', 'PostsController@delete');
+Route::post('{id}/delete', 'PostsController@delete');
 
 Route::get('/search', 'UsersController@search')->name('search');
 

@@ -78,7 +78,8 @@ class PostsController extends Controller
     {
         $user = auth()->user();
         \DB::table('posts')
-            ->where($user->id, $post->id)
+            ->where('user_id', $user->id)
+            ->where('id', $post->id)
             ->delete();
 
         return redirect('top');
