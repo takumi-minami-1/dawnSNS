@@ -74,7 +74,7 @@ class PostsController extends Controller
     }
 
     // 削除処理の実装
-    public function delete(Post $post)
+    public function delete(Request $post)
     {
         $user = auth()->user();
         \DB::table('posts')
