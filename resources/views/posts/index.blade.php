@@ -53,46 +53,47 @@
       </div>
 
       <!-- 4.x.1 モーダルの設置 -->
-      @if ($timeline->user->id === auth()->user()->id)
-
-      <div class="tweet-menu">
-        <!-- 編集 -->
-        <!-- ライフスタイルボックス -->
-        <div class="life-type">
-          <!-- <a class="modalopen" data-target="modal01"> -->
-          <a class="modalopen" data-target="{{ $timeline->id }}">
-            <input src='images/edit.png' type="image" class="edit-menu-icon"></input>
-          </a>
-        </div>
-        <!-- モーダルの中身 -->
-        <div class="modal-main js-modal" id="{{ $timeline->id }}">
-          <div class="inner">
-            <div class="inner-content">
-
-              <!-- 更新処理の実装 -->
-              {!! Form::open(['url' => 'update']) !!}
-              <div class="edit-modal">
-                {!! Form::hidden('id', $timeline->id) !!}
-                {!! Form::input('text', 'upPost', $timeline->posts, ['required', 'class' => 'form-control-edit']) !!}
-              </div>
-              <input src='images/edit.png' type="image" class="image-modal"></input>
-              {!! Form::close() !!}
+      <div class="">
+        @if ($timeline->user->id === auth()->user()->id)
+        <div class="">
+          <div class="tweet-menu">
+            <!-- 編集 -->
+            <!-- ライフスタイルボックス -->
+            <div class="life-type">
+              <!-- <a class="modalopen" data-target="modal01"> -->
+              <a class="modalopen" data-target="{{ $timeline->id }}">
+                <input src='images/edit.png' type="image" class="edit-menu-icon"></input>
+              </a>
             </div>
+            <!-- モーダルの中身 -->
+            <div class="modal-main js-modal" id="{{ $timeline->id }}">
+              <div class="inner">
+                <div class="inner-content">
+
+                  <!-- 更新処理の実装 -->
+                  {!! Form::open(['url' => 'update']) !!}
+                  <div class="edit-modal">
+                    {!! Form::hidden('id', $timeline->id) !!}
+                    {!! Form::input('text', 'upPost', $timeline->posts, ['required', 'class' => 'form-control-edit']) !!}
+                  </div>
+                  <input src='images/edit.png' type="image" class="image-modal"></input>
+                  {!! Form::close() !!}
+                </div>
+              </div>
+            </div>
+
+            <!-- <input src='images/trash_h.png' type="image" class="delete-menu-icon" href="/delete"></input> -->
+            <!-- <a class="delete-menu-icon" src='images/trash_h.png' type="image" href="/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a> -->
+
+            <a href="/{{$timeline->id}}/delete"><img src="images/trash_h.png" class="delete-btn" alt="削除" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a>
+
+
+
+
           </div>
         </div>
-
-        <!-- <input src='images/trash_h.png' type="image" class="delete-menu-icon" href="/delete"></input> -->
-        <!-- <a class="delete-menu-icon" src='images/trash_h.png' type="image" href="/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a> -->
-
-        <a href="/{{$timeline->id}}/delete"><img src="images/trash_h.png" alt="削除" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"></a>
-
-
-
-
+        @endif
       </div>
-
-      @endif
-
     </div>
   </div>
   @endforeach
