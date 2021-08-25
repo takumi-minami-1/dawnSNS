@@ -26,7 +26,7 @@
                     <div class="profile-form-group row">
                         <label for="username" class="col-md-4 col-form-label profile-text-md-right">{{ __('UserName') }}</label>
                         <div class="col-md-6">
-                            {!! Form::input('text', 'upUser', $user->username, ['required', 'class' => 'profile-form-control']) !!}
+                            {!! Form::input('text', 'upUser1', $user->username, ['required', 'class' => 'profile-form-control']) !!}
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                     <div class="profile-form-group row">
                         <label for="mail" class="col-md-4 col-form-label profile-text-md-right">{{ __('MailAddress') }}</label>
                         <div class="col-md-6">
-                            {!! Form::input('text', 'upUser', $user->mail, ['required', 'class' => 'profile-form-control']) !!}
+                            {!! Form::input('text', 'upUser2', $user->mail, ['required', 'class' => 'profile-form-control']) !!}
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
                     <div class="profile-form-group row">
                         <label for="new_password" class="col-md-4 col-form-label profile-text-md-right">{{ __('new Password') }}</label>
                         <div class="col-md-6">
-                            {!! Form::input('password', 'upUser', null, ['class' => 'profile-form-control-password-raw']) !!}
+                            {!! Form::input('password', 'upUser3', null, ['class' => 'profile-form-control-password-raw']) !!}
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@
                     <div class="profile-form-group row">
                         <label for="bio" class="col-md-4 col-form-label profile-text-md-right">{{ __('Bio') }}</label>
                         <div class="col-md-6">
-                            {!! Form::input('text', 'upUser', $user->bio, ['class' => 'profile-form-control-password-bio']) !!}
+                            {!! Form::input('text', 'upUser4', $user->bio, ['class' => 'profile-form-control-password-bio']) !!}
                         </div>
                     </div>
 

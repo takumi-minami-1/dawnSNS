@@ -160,21 +160,27 @@ class UsersController extends Controller
     // 8 プロフィール
     public function update(Request $request)
     {
+        $user = auth()->user();
         $id = $request->input('id');
-        $up_user = $request->input('upUser');
+        $up_user1 = $request->input('upUser1');
+        $up_user2 = $request->input('upUser2');
+        $up_user3 = $request->input('upUser3');
+        $up_user4 = $request->input('upUser4');
         \DB::table('users')
             ->where(
                 'id',
                 $id
             )
             ->update(
-                ['username' => $up_user],
-                ['mail' => $up_user],
-                ['password' => $up_user],
-                ['bio' => $up_user],
+                [
+                    'username' => $up_user1,
+                    'mail' => $up_user2,
+                    'password' => $up_user3,
+                    'bio' => $up_user4
+                ],
             );
 
-        return redirect('edit');
+        return redirect('users/' . $user->id . '/edit');
     }
 
 
