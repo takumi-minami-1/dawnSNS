@@ -50,6 +50,6 @@ Route::delete('users/{user}/unfollow', 'UsersController@unfollow')->name('unfoll
 Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit']]);
 
 // 8 プロフィール
-Route::post('update', 'UsersController@update');
+Route::post('user-update', 'UsersController@update');
 
 // Route::get('/profile', 'UsersController@profile');

@@ -175,9 +175,9 @@ class UsersController extends Controller
                 [
                     'username' => $up_user1,
                     'mail' => $up_user2,
-                    'password' => $up_user3,
-                    'bio' => $up_user4
-                ],
+                    'password' => bcrypt($up_user3),
+                    'bio' => $up_user4,
+                ]
             );
 
         return redirect('users/' . $user->id . '/edit');

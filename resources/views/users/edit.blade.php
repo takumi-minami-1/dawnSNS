@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="profile-card-body">
-                    {!! Form::open(['url' => 'update']) !!}
+                    {!! Form::open(['url' => 'user-update']) !!}
                     {!! Form::hidden('id', $user->id) !!}
 
                     <div class="profile-form-group row">
@@ -42,7 +42,7 @@
                     <div class="profile-form-group row">
                         <label for="password" class="col-md-4 col-form-label profile-text-md-right">{{ __('Password') }}</label>
                         <div class="col-md-6">
-                            <input type="text" class="profile-form-control-password" value="{{ $user->password }}" readonly>
+                            <input type="text" class="profile-form-control-password" value="{{ $user->password-confirm }}" readonly>
                         </div>
                     </div>
 
