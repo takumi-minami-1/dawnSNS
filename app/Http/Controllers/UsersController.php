@@ -166,19 +166,36 @@ class UsersController extends Controller
         $up_user2 = $request->input('upUser2');
         $up_user3 = $request->input('upUser3');
         $up_user4 = $request->input('upUser4');
-        \DB::table('users')
-            ->where(
-                'id',
-                $id
-            )
-            ->update(
-                [
-                    'username' => $up_user1,
-                    'mail' => $up_user2,
-                    'password' => bcrypt($up_user3),
-                    'bio' => $up_user4,
-                ]
-            );
+
+        if ($up_user3 = '') {
+            \DB::table('users')
+                ->where(
+                    'id',
+                    $id
+                )
+                ->update(
+                    [
+                        'username' => $up_user1,
+                        'mail' => $up_user2,
+                        'bio' => $up_user4,
+                    ]
+                );
+        } else {
+            \DB::table('users')
+                ->where(
+                    'id',
+                    $id
+                )
+                ->update(
+                    [
+                        'username' => $up_user1,
+                        'mail' => $up_user2,
+                        'password' => bcrypt($up_user3),
+                        'password_confirm' => $up_user3,
+                        'bio' => $up_user4,
+                    ]
+                );
+        }
 
         return redirect('users/' . $user->id . '/edit');
     }

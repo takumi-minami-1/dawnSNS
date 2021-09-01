@@ -35,7 +35,7 @@
 
       <div class="form-item">
         {{ Form::label('Password confirm',null,['class' => 'Label']) }}
-        {{ Form::password('password-confirm',['class' => 'formText']) }}
+        {{ Form::password('password_confirm',['class' => 'formText']) }}
       </div>
     </div>
 

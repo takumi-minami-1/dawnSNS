@@ -53,7 +53,7 @@ class RegisterController extends Controller
             'username' => 'required|min:4|max:12',
             'mail' => 'required|email|min:4|max:12|unique:users',
             'password' => 'required|min:4|max:12|unique:users|alpha_num',
-            'password-confirm' => 'required|min:4|max:12|alpha_num|same:password',
+            'password_confirm' => 'required|min:4|max:12|alpha_num|same:password',
         ]);
     }
 
@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'mail' => $data['mail'],
             'password' => bcrypt($data['password']),
-            'password-confirm' => $data['password-confirm'],
+            'password_confirm' => $data['password_confirm'],
         ]);
     }
 
