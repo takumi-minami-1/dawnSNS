@@ -537,3 +537,146 @@ a.a-logout:hover {
   .delete-btn{
 margin-left: 30px;
   }
+
+  /* 8 プロフィール */
+.profile-card {
+  display: flex;
+}
+
+.profile-image {
+  margin: 39px 27px auto 116px;
+}
+
+.profile-card-body {
+
+}
+
+  .profile-form-group {
+    margin-bottom: 37px;
+  }
+
+    .profile-text-md-right {
+    margin-right: -45px;
+    font-size: 20px;
+  }
+
+    .profile-form-control {
+    margin-top: -5px;
+    display: block;
+    width: 280px;
+    height: 30px;
+    padding: 6px 6px;
+    font-size: 20px;
+    line-height: 1.42857143;
+    color: #6C6C6C;
+    background-color: #F2F2F2;
+    background-image: none;
+    border:none;
+    border-bottom: 1px solid #707070;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+    .profile-form-control-password {
+    margin-top: -5px;
+    display: block;
+    width: 280px;
+    height: 30px;
+    padding: 6px 6px;
+    font-size: 20px;
+    line-height: 1.42857143;
+    color: #6C6C6C;
+    background-color: white;
+    background-image: none;
+    border:none;
+    border-bottom: 1px solid #707070;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+
+    .profile-form-control-password-raw {
+    margin-top: -5px;
+    display: block;
+    width: 280px;
+    height: 30px;
+    padding: 6px 6px;
+    font-size: 20px;
+    line-height: 1.42857143;
+    color: #6C6C6C;
+    background-color: #F2F2F2;
+    background-image: none;
+    border:none;
+    border-bottom: 1px solid #707070;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+    .profile-form-control-bio {
+    margin-top: -5px;
+    display: block;
+    width: 280px;
+    height: 72px;
+    padding: 6px 6px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #6C6C6C;
+    background-color: #F2F2F2;
+    background-image: none;
+    border:none;
+    border-bottom: 1px solid #707070;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+  .profile-form-control-images {
+    margin-top: -5px;
+    display: block;
+    width: 326px;
+    height: 111px;
+    padding: 6px 6px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #6C6C6C;
+    background-color: #F2F2F2;
+    background-image: none;
+    border:none;
+    border-bottom: 1px solid #707070;
+    border-radius: 3px;
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+
+  .profile-btn-primary {
+  color: #fff;
+  background-color: #7B9979;
+}
+
+  .profile-btn {
+    display: inline-block;
+    margin: 0px auto auto 345px;
+    width: 138px;
+    height: 43px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }

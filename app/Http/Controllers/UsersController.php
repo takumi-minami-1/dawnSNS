@@ -166,21 +166,10 @@ class UsersController extends Controller
         $up_user2 = $request->input('upUser2');
         $up_user3 = $request->input('upUser3');
         $up_user4 = $request->input('upUser4');
+        $up_user5 = $request->input('upUser5');
 
-        if ($up_user3 = '') {
-            \DB::table('users')
-                ->where(
-                    'id',
-                    $id
-                )
-                ->update(
-                    [
-                        'username' => $up_user1,
-                        'mail' => $up_user2,
-                        'bio' => $up_user4,
-                    ]
-                );
-        } else {
+        if (isset($up_user3)) {
+
             \DB::table('users')
                 ->where(
                     'id',
@@ -193,6 +182,21 @@ class UsersController extends Controller
                         'password' => bcrypt($up_user3),
                         'password_confirm' => $up_user3,
                         'bio' => $up_user4,
+                        'images' => $up_user5,
+                    ]
+                );
+        } else {
+            \DB::table('users')
+                ->where(
+                    'id',
+                    $id
+                )
+                ->update(
+                    [
+                        'username' => $up_user1,
+                        'mail' => $up_user2,
+                        'bio' => $up_user4,
+                        'images' => $up_user5,
                     ]
                 );
         }

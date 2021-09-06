@@ -58,10 +58,19 @@
                     <div class="profile-form-group row">
                         <label for="bio" class="col-md-4 col-form-label profile-text-md-right">{{ __('Bio') }}</label>
                         <div class="col-md-6">
-                            {!! Form::input('text', 'upUser4', $user->bio, ['class' => 'profile-form-control-password-bio']) !!}
+                            {!! Form::input('text', 'upUser4', $user->bio, ['class' => 'profile-form-control-bio']) !!}
                         </div>
                     </div>
 
+
+
+                    <!-- ファイルのフォーム -->
+                    <div class="profile-form-group row align-items-center">
+                        <label for="images" class="col-md-4 col-form-label profile-text-md-right">{{ __('Icon Image') }}</label>
+                        <div class="col-md-6">
+                            {!! Form::input('file', 'upUser5', $user->images, ['class' => 'profile-form-control-images']) !!}
+                        </div>
+                    </div>
                     <!-- ファイルのフォーム -->
 
                     <div class="profile-form-group row mb-0">

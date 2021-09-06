@@ -50,7 +50,11 @@
             </div>
             <!-- アイコン -->
             <div id="box3" class="top-image">
-                <p><img src="{{ asset('images/dawn.png') }}" class="mr-2"></p>
+                @if(auth()->user()->images == 'dawn.png')
+                <p><img src="{{ asset('images/' .auth()->user()->images) }}" class="mr-2"></p>
+                @else
+                <p><img src="{{ asset('storage/images/' .auth()->user()->images) }}" class="mr-2"></p>
+                @endif
             </div>
         </div>
     </header>
