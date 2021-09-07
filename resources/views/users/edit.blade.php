@@ -25,9 +25,9 @@
 
                     <div class="profile-form-group row">
                         <label for="username" class="col-md-4 col-form-label profile-text-md-right">{{ __('UserName') }}</label>
-                        <div class="col-md-6">
+                        <diggファファv class="col-md-6">
                             {!! Form::input('text', 'upUser1', $user->username, ['required', 'class' => 'profile-form-control']) !!}
-                        </div>
+                        </diggファファv>
                     </div>
 
 
@@ -68,7 +68,7 @@
                     <div class="profile-form-group row align-items-center">
                         <label for="images" class="col-md-4 col-form-label profile-text-md-right">{{ __('Icon Image') }}</label>
                         <div class="col-md-6">
-                            {!! Form::input('file', 'upUser5', $user->images, ['class' => 'profile-form-control-images']) !!}
+                            {!! Form::input('file', 'upUser5', $user->images, ['files' => true, 'class' => 'profile-form-control-images']) !!}
                         </div>
                     </div>
                     <!-- ファイルのフォーム -->

@@ -167,6 +167,12 @@ class UsersController extends Controller
         $up_user3 = $request->input('upUser3');
         $up_user4 = $request->input('upUser4');
         $up_user5 = $request->input('upUser5');
+        $up_user5_1 = $request->file('upUser5');
+
+        if (!is_null($up_user5_1)) {
+            $file_name = $up_user5_1->getClientOriginalName();
+            $up_user5_1->storeAs('/images', $file_name, 'public');
+        }
 
         if (isset($up_user3)) {
 
