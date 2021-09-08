@@ -171,7 +171,7 @@ class UsersController extends Controller
 
         if (!is_null($up_user5_1)) {
             $file_name = $up_user5_1->getClientOriginalName();
-            $up_user5_1->storeAs('/images', $file_name, 'public');
+            $up_user5_1->storeAs('/images', $file_name, 'public_uploads');
         }
 
         if (isset($up_user3)) {

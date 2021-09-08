@@ -53,7 +53,7 @@
                 @if(auth()->user()->images == 'dawn.png')
                 <p><img src="{{ asset('images/' .auth()->user()->images) }}" class="mr-2"></p>
                 @else
-                <p><img src="{{ asset('storage/images/' .auth()->user()->images) }}" class="mr-2"></p>
+                <p><img src="{{ asset('public/images/' .auth()->user()->images) }}" class="mr-2"></p>
                 @endif
             </div>
         </div>
