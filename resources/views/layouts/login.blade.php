@@ -66,11 +66,11 @@
             <div id="side-bar-confirm">
                 <div id="side-bar-confirm-follows">
                     <div id="side-bar-confirm-follow">
-                        <p class="side-name">{{ Auth::user()->username }} さんの</p>
+                        <p class="side-name">{{ Auth::user()->username }}さんの</p>
                         <p class="side-follow">フォロー数</p>
                     </div>
                     <div id="side-bar-confirm-follow-count">
-                        <p>　{{ $follow_count }} 名</p>
+                        <p class="side-follow-margin">{{ $follow_count }} 名</p>
                     </div>
                 </div>
                 <div id="side-bar-confirm-follow-list">

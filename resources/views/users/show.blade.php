@@ -16,7 +16,7 @@
             <p><img src="{{ asset('images/' .$user->images) }}" class="rounded-circle"></p>
             @else
             <!-- アップロードしたアイコン -->
-            <p><img src="{{ asset('storage/images/' .$user->images) }}" class="rounded-circle"></p>
+            <p><img src="{{ asset('images/' .$user->images) }}" class="rounded-circle"></p>
             @endif
           </div>
         </div>

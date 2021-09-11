@@ -243,18 +243,23 @@ a.a-logout:hover {
 }
 
 .side-name {
-    margin: 10px 123px auto 10px;
+    margin: 10px 100px auto 10px;
     color: #6C6C6C;
 }
 
 .side-follow {
-    margin: 10px 111px auto 22px;
+    margin: 10px 100px auto 22px;
     color: #6C6C6C;
 }
 
 #side-bar-confirm-follow-count {
   margin: 34px 0 auto 0;
   color: #6C6C6C;
+  width: 84px;
+}
+
+.side-follow-margin {
+  margin-left: 15px;
 }
 
 #side-bar-confirm-follow-list {
@@ -544,27 +549,26 @@ margin-left: 30px;
 }
 
 .profile-image {
-  margin: 39px 27px auto 116px;
+  margin: 15px 27px auto 116px;
 }
 
 .profile-card-body {
-
+margin-top: -20px;
 }
 
   .profile-form-group {
-    margin-bottom: 37px;
+    margin-bottom: 15px;
   }
 
     .profile-text-md-right {
     margin-left: 115px;
     font-size: 20px;
+    color: #6C6C6C;
   }
 
     .profile-username {
       margin-top: 75px;
     }
-
-
 
     .profile-form-control {
     margin-top: -5px;
@@ -642,6 +646,18 @@ margin-left: 30px;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   }
 
+.align-items-center {
+
+}
+/* .col-form-label2 {
+     background: #000;
+     color: #fff;
+     cursor: pointer;
+     padding: 15px 30px;
+     margin: 0 10px 0 0;
+     display: inline-block;
+} */
+
   .profile-form-control-images {
     margin-top: -5px;
     margin-left: 370px;
@@ -668,7 +684,7 @@ margin-left: 30px;
 
   .profile-btn {
     display: inline-block;
-    margin: 0px auto auto 345px;
+    margin: 30px auto auto 610px;
     width: 138px;
     height: 43px;
     padding: 6px 12px;

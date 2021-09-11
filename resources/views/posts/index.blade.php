@@ -14,7 +14,7 @@
           <p><img src="{{ asset('images/' .auth()->user()->images) }}" class="rounded-circle"></p>
           @else
           <!-- アップロードしたアイコン -->
-          <p><img src="{{ asset('storage/images/' .auth()->user()->images) }}" class="rounded-circle"></p>
+          <p><img src="{{ asset('images/' .auth()->user()->images) }}" class="rounded-circle"></p>
           @endif
         </div>
         <div class="form-group-text">

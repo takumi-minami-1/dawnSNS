@@ -14,13 +14,13 @@
                         <p><img src="{{ asset('images/' .auth()->user()->images) }}" class="rounded-circle profile-image"></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><img src="{{ asset('public/images/' .auth()->user()->images) }}" class="rounded-circle profile-image"></p>
+                        <p><img src="{{ asset('images/' .auth()->user()->images) }}" class="rounded-circle profile-image"></p>
                         @endif
                     </div>
                 </div>
 
                 <div class="profile-card-body">
-                    {!! Form::open(['url' => 'user-update']) !!}
+                    {!! Form::open(['url' => 'user-update','enctype' => 'multipart/form-data']) !!}
                     {!! Form::hidden('id', $user->id) !!}
 
                     <div class="profile-form-group row">
@@ -67,22 +67,23 @@
                     <!-- ファイルのフォーム -->
                     <div class="profile-form-group row align-items-center">
                         <label for="images" class="col-md-4 col-form-label profile-text-md-right">{{ __('Icon Image') }}</label>
-                        <div class="col-md-6 align-items-center">
-                            {!! Form::input('file', 'upUser5', $user->images, ['files' => true, 'class' => 'profile-form-control-images']) !!}
-                        </div>
+                        <label for="sample1" class="col-form-label2">
+                            {!! Form::input('file', 'upUser5', $user->images, ['files' => true, 'class' => 'profile-form-control-images', 'id' => 'sample1']) !!}
+                        </label>
                     </div>
                     <!-- ファイルのフォーム -->
 
                 </div>
-                <div class="profile-form-group row mb-0">
-                    <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="profile-btn profile-btn-primary">更 新</button>
-                    </div>
-                </div>
-                {!! Form::close() !!}
-
-
             </div>
+            <div class="profile-form-group row mb-0">
+                <div class="col-md-6 offset-md-4">
+                    <button type="submit" class="profile-btn profile-btn-primary">更 新</button>
+                </div>
+            </div>
+            {!! Form::close() !!}
+
+
+
         </div>
     </div>
 </div>
