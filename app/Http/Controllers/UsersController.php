@@ -171,7 +171,8 @@ class UsersController extends Controller
 
         if (!is_null($up_user5_1)) {
             $file_name = $up_user5_1->getClientOriginalName();
-            $up_user5_1->storeAs('/public/images', $file_name, 'public_uploads');
+            $up_user5_1->storeAs('/images', $file_name, 'public_uploads');
+            \DB::table('users')->where('id', $id)->update(['images' => $file_name]);
         }
 
         if (isset($up_user3)) {
@@ -188,7 +189,7 @@ class UsersController extends Controller
                         'password' => bcrypt($up_user3),
                         'password_confirm' => $up_user3,
                         'bio' => $up_user4,
-                        'images' => $up_user5,
+                        // 'images' => $up_user5,
                     ]
                 );
         } else {
@@ -202,7 +203,7 @@ class UsersController extends Controller
                         'username' => $up_user1,
                         'mail' => $up_user2,
                         'bio' => $up_user4,
-                        'images' => $up_user5,
+                        // 'images' => $up_user5,
                     ]
                 );
         }

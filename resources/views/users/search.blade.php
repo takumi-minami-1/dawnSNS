@@ -33,7 +33,7 @@
         <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
         @else
         <!-- アップロードしたアイコン -->
-        <p><img src="{{ asset('storage/images/' .$item->images) }}" class="rounded-circle"></p>
+        <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
         @endif
       </div>
       <div class="search-list-name">

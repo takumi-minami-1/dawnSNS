@@ -40,7 +40,7 @@
           <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
           @else
           <!-- アップロードしたアイコン -->
-          <p><img src="{{ asset('storage/images/' .$timeline->user->images) }}" class="rounded-circle"></p>
+          <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
           @endif
         </div>
         <div class="timelines">
