@@ -65,10 +65,11 @@
 
 
                     <!-- ファイルのフォーム -->
-                    <div class="profile-form-group row align-items-center">
+                    <div class="profile-form-group">
                         <label for="images" class="col-md-4 col-form-label profile-text-md-right">{{ __('Icon Image') }}</label>
-                        <label for="sample1" class="col-form-label2">
-                            {!! Form::input('file', 'upUser5', $user->images, ['files' => true, 'class' => 'profile-form-control-images', 'id' => 'sample1']) !!}
+                        <div class="align-items-center">
+                            {!! Form::input('file', 'upUser5', $user->images, ['files' => true, 'class' => 'profile-form-control-images', 'id' => 'sample1']) !!}<label for="sample1" id="sample1" class="profile-form-control-file">ファイルを選択</label>
+                        </div>
                         </label>
                     </div>
                     <!-- ファイルのフォーム -->

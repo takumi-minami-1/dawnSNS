@@ -559,6 +559,10 @@ margin-top: -20px;
 
   .profile-form-group {
     margin-bottom: 15px;
+
+
+
+
   }
 
     .profile-text-md-right {
@@ -648,40 +652,32 @@ margin-top: -20px;
   }
 
 .align-items-center {
+   background-color: #F2F2F2;
+   text-align: center;
+   margin-left: 370px;
+   margin-right: 50px;
+   width: -100px;
+   height: 111px;
+   font-size: 14px;
+   color: #6C6C6C;
+   border-bottom: 1px solid #707070;
 
+   display: flex;
+   align-items: center; /* 縦方向中央揃え */
+   justify-content: center; /* 横方向中央揃え */
 }
-/* .col-form-label2 {
-     background: #000;
-     color: #fff;
-     cursor: pointer;
-     padding: 15px 30px;
-     margin: 0 10px 0 0;
-     display: inline-block;
-} */
+
 
 input[type="file"] {
    display: none;
 }
 
-  .profile-form-control-images {
-    margin-top: -5px;
-    margin-left: 370px;
-    display: none;
-    width: 326px;
-    height: 111px;
-    padding: 6px 6px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #6C6C6C;
-    background-color: #F2F2F2;
-    background-image: none;
-    border:none;
-    border-bottom: 1px solid #707070;
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-
-  }
+.profile-form-control-file {
+  background-color: #FFF;
+  text-align:center;
+  padding:8px 10px;
+  border-radius: 5px;
+}
 
   .profile-btn-primary {
   color: #fff;
