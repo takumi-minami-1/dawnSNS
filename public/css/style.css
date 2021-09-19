@@ -387,12 +387,11 @@ a.a-logout:hover {
     vertical-align:  bottom;
     box-sizing: border-box;
     float:  left;
-    padding-right: 20px;
+    padding-right: 40px;
 }
 
 .search-form-group {
-    /* display: flex; */
-   width:  1680px;
+   width:  1660px;
   vertical-align: left;
   box-sizing: border-box;
   border-bottom: 5px solid #D7D7D7;
@@ -403,7 +402,7 @@ a.a-logout:hover {
 .search-forms {
   display: flex;
   width:  1360.5px;
-
+  height: 147px;
 }
 
 .search-form {
@@ -451,25 +450,85 @@ a.a-logout:hover {
 /* 5.2.1 ユーザー検索の結果一覧を表示 */
 .search-list {
   display: flex;
+  margin-top: 10px;
 }
 
 .search-list-image {
-  margin: 28.5px 0px 0px 85px;
+  margin-left: 85px;
+  margin-top: 5px;
+    display:flex;
+    /*コレ*/display: flex;
+    /*コレ*/align-items: center;
 }
 
 .search-list-name {
-  margin: 44px auto 0px 15px;
+
+  margin-left: 10px;
   color: #6C6C6C;
   font-size: 18px;
   font: Regular 28px/42px Meiryo;
+
+  display:flex;
+justify-content:center;
+align-items:center;
 }
+
+
 
 .search-list-follow {
-  margin: 32.5px 250px 0px auto;
+  margin-left: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* search-btn-follow1 search-btn-primary-follow1 */
-/* search-btn-follow2 search-btn-primary-follow2 */
+.search-btn-follow1 {
+  display: inline-block;
+  width: 138px;
+  height: 43px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.search-btn-primary-follow1 {
+  color: #FFFFFF;
+  background-color: #c05454;
+}
+
+.search-btn-follow2 {
+  display: inline-block;
+  width: 138px;
+  height: 43px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+.search-btn-primary-follow2 {
+  color: #FFFFFF;
+  background-color: #4B71CABF;
+}
 
 /* 4.x.1 モーダルの設置 */
 /* 編集 */
@@ -704,4 +763,24 @@ input[type="file"] {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 5px;
+  }
+
+  /* 6.x フォローリスト,フォロワーリスト */
+.followList-group {
+    border-bottom: 5px solid #D7D7D7;
+}
+
+
+  .followList-title {
+    /* margin: 21px auto auto 43px; */
+    font-size: 28px;
+    color: #6C6C6C;
+  }
+
+    .followList-form-group {
+width: 1360.5px;
+    height: 170px;
+    vertical-align:  left;
+    box-sizing: border-box;
+
   }

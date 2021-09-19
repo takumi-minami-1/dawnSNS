@@ -17,7 +17,7 @@
                         <p><a href="{{ url('users/' .$item->id) }}"><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$item->id) }}"><img src="{{ asset('storage/images/' .$item->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$item->id) }}"><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     @endif
@@ -39,7 +39,7 @@
                         <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('images/' .$time->user->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('storage/images/' .$time->user->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('images/' .$time->user->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     <div class="timelines">

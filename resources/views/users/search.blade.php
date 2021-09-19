@@ -13,14 +13,13 @@
         {!! Form::close() !!}
 
         @if(!empty($search1))
-        <div class="search-name-group">
-          <label for="form" class="search-name">{{ __('検索ワード：') }}</label>
-          <h4 class="search-name-search">{{ $search1 }}</h4>
-        </div>
+
+        <label for="form" class="search-name">{{ __('検索ワード：') }}</label>
+        <h4 class="search-name-search">{{ $search1 }}</h4>
       </div>
       @endif
-    </div>
 
+    </div>
     <!-- 5.2.1 ユーザー検索の結果一覧を表示 -->
     @if(!empty($data))
     @foreach($data as $item)
@@ -62,6 +61,6 @@
     @endforeach
     @endif
 
+
   </div>
-</div>
-@endsection
+  @endsection

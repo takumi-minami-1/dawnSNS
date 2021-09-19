@@ -35,16 +35,16 @@
     <div class="card">
       <div class="tweet-timelines">
         <div id="top-image2" class="top-image2">
-          @if($timeline->user->images == 'dawn.png')
+          @if($timeline->images == 'dawn.png')
           <!-- 初期アイコン -->
-          <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
+          <p><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></p>
           @else
           <!-- アップロードしたアイコン -->
-          <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
+          <p><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></p>
           @endif
         </div>
         <div class="timelines">
-          <p class="tweets-top-username">{{ $timeline->user->username }}</p>
+          <p class="tweets-top-username">{{ $timeline->username }}</p>
           <p class="tweets-top-text">{!! nl2br(e($timeline->posts)) !!}</p>
         </div>
         <div class="tweets-top-time">
@@ -54,7 +54,7 @@
 
       <!-- 4.x.1 モーダルの設置 -->
       <div class="">
-        @if ($timeline->user->id === auth()->user()->id)
+        @if ($timeline->id === auth()->user()->id)
         <div class="">
           <div class="tweet-menu">
             <!-- 編集 -->

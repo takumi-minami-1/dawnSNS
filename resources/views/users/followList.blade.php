@@ -4,8 +4,8 @@
 <!-- 6.1.1 フォローリスト/フォローユーザーのアイコン一覧の設置 -->
 <div class="container">
     <div class="row justify-content-center">
-        <div class="followList-title">Follow list</div>
-        <div class="card-body">
+        <div class="followList-group">
+            <div class="followList-title">Follow list</div>
             <div class="followList-form-group">
                 @if(!empty($data))
                 @foreach($data as $item)
@@ -17,7 +17,7 @@
                         <p><a href="{{ url('users/' .$item->id) }}"><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$item->id) }}"><img src="{{ asset('storage/images/' .$item->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$item->id) }}"><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     @endif
@@ -39,12 +39,12 @@
                         <p><a href="{{ url('users/' .$timeline->user->id) }}"><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$timeline->user->id) }}"><img src="{{ asset('storage/images/' .$timeline->user->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$timeline->user->id) }}"><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     <div class="timelines">
                         <p class="tweets-top-username">{{ $timeline->user->username }}</p>
-                        <p class="tweets-top-text">{{ $timeline->posts }}</p>
+                        <p class="tweets-top-text">{!! nl2br(e($timeline->posts)) !!}</p>
                     </div>
                     <div class="tweets-top-time">
                         <p class="">{{ $timeline->created_at }}</p>
