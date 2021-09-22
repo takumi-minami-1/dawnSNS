@@ -435,13 +435,13 @@ a.a-logout:hover {
 }
 
 .search-name {
-  margin: 44px auto auto 115px;
+  margin: 44px 0px auto 115px;
   color: #6C6C6C;
   font-size: 18px;
 }
 
 .search-name-search {
-  margin: 44px auto auto 0px;
+  margin: 44px 220px auto 0px;
   color: #6C6C6C;
   font-size: 18px;
   font: Regular 28px/42px Meiryo;
@@ -456,26 +456,23 @@ a.a-logout:hover {
 .search-list-image {
   margin-left: 85px;
   margin-top: 5px;
-    display:flex;
-    /*コレ*/display: flex;
-    /*コレ*/align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .search-list-name {
-
+  width: 100px;
   margin-left: 10px;
   color: #6C6C6C;
   font-size: 18px;
   font: Regular 28px/42px Meiryo;
-
   display:flex;
-justify-content:center;
-align-items:center;
+  justify-content:center;
+  align-items:center;
 }
 
-
-
 .search-list-follow {
+  width: 100px;
   margin-left: 550px;
   display: flex;
   justify-content: center;

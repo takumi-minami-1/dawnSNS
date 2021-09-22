@@ -18,49 +18,49 @@
         <h4 class="search-name-search">{{ $search1 }}</h4>
       </div>
       @endif
-
     </div>
-    <!-- 5.2.1 ユーザー検索の結果一覧を表示 -->
-    @if(!empty($data))
-    @foreach($data as $item)
-    <!-- <div class="card"> -->
-    <div class="search-list">
-      <div class="search-list-image">
-
-        @if($item->images == 'dawn.png')
-        <!-- 初期アイコン -->
-        <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
-        @else
-        <!-- アップロードしたアイコン -->
-        <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
-        @endif
-      </div>
-      <div class="search-list-name">
-        <p class="">{{ $item->username }}</p>
-      </div>
-      <!-- 5.2.2 フォローする,フォロをーはずすボタンの設置 -->
-      <div class="search-list-follow">
-        @if (auth()->user()->isFollowing($item->id))
-        <form action="{{ route('unfollow', ['id' => $item->id]) }}" method="POST">
-          {{ csrf_field() }}
-          {{ method_field('DELETE') }}
-
-          <button type="submit" class="search-btn-follow1 search-btn-primary-follow1">フォローをはずす</button>
-        </form>
-        @else
-        <form action="{{ route('follow', ['id' => $item->id]) }}" method="POST">
-          {{ csrf_field() }}
-
-          <button type="submit" class="search-btn-follow2 search-btn-primary-follow2">フォローする</button>
-        </form>
-        @endif
-      </div>
-
-    </div>
-    <!-- </div> -->
-    @endforeach
-    @endif
-
 
   </div>
-  @endsection
+  <!-- 5.2.1 ユーザー検索の結果一覧を表示 -->
+  @if(!empty($data))
+  @foreach($data as $item)
+  <!-- <div class="card"> -->
+  <div class="search-list">
+    <div class="search-list-image">
+
+      @if($item->images == 'dawn.png')
+      <!-- 初期アイコン -->
+      <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
+      @else
+      <!-- アップロードしたアイコン -->
+      <p><img src="{{ asset('images/' .$item->images) }}" class="rounded-circle"></p>
+      @endif
+    </div>
+    <div class="search-list-name">
+      <p class="">{{ $item->username }}</p>
+    </div>
+    <!-- 5.2.2 フォローする,フォロをーはずすボタンの設置 -->
+    <div class="search-list-follow">
+      @if (auth()->user()->isFollowing($item->id))
+      <form action="{{ route('unfollow', ['id' => $item->id]) }}" method="POST">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+
+        <button type="submit" class="search-btn-follow1 search-btn-primary-follow1">フォローをはずす</button>
+      </form>
+      @else
+      <form action="{{ route('follow', ['id' => $item->id]) }}" method="POST">
+        {{ csrf_field() }}
+
+        <button type="submit" class="search-btn-follow2 search-btn-primary-follow2">フォローする</button>
+      </form>
+      @endif
+    </div>
+
+  </div>
+  @endforeach
+  @endif
+
+
+</div>
+@endsection
