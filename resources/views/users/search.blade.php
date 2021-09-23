@@ -37,7 +37,7 @@
       @endif
     </div>
     <div class="search-list-name">
-      <p class="">{{ $item->username }}</p>
+      <p class="search-list-name-1">{{ $item->username }}</p>
     </div>
     <!-- 5.2.2 フォローする,フォロをーはずすボタンの設置 -->
     <div class="search-list-follow">
