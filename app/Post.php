@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+
 
 class Post extends Model
 {
@@ -31,7 +33,7 @@ class Post extends Model
     }
 
     // 6.1.2 フォローリスト/フォローユーザーのつぶやき一覧の設置
-    public function getTimeLinesFollow(Int $follow_id, array $follow_ids)
+    public function getTimeLinesFollow(Int $id, array $follow_ids)
     {
         // $follow_ids[] = $follow_id;
         $id = Auth::id();
