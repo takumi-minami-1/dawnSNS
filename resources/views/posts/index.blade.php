@@ -35,16 +35,16 @@
     <div class="card">
       <div class="tweet-timelines">
         <div id="top-image2" class="top-image2">
-          @if($timeline->images == 'dawn.png')
+          @if($timeline->user->images == 'dawn.png')
           <!-- 初期アイコン -->
-          <p><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></p>
+          <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
           @else
           <!-- アップロードしたアイコン -->
-          <p><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></p>
+          <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
           @endif
         </div>
         <div class="timelines">
-          <p class="tweets-top-username">{{ $timeline->username }}</p>
+          <p class="tweets-top-username">{{ $timeline->user->username }}</p>
           <p class="tweets-top-text">{!! nl2br(e($timeline->posts)) !!}</p>
         </div>
         <div class="tweets-top-time">
@@ -54,19 +54,19 @@
 
       <!-- 4.x.1 モーダルの設置 -->
       <div class="">
-        @if ($timeline->id === auth()->user()->id)
+        @if ($timeline->user->id === auth()->user()->id)
         <div class="">
           <div class="tweet-menu">
             <!-- 編集 -->
             <!-- ライフスタイルボックス -->
             <div class="life-type">
               <!-- <a class="modalopen" data-target="modal01"> -->
-              <a class="modalopen" data-target="{{ $timeline->id }}">
+              <a class="modalopen" data-target="{{ $timeline->user->id }}">
                 <input src='images/edit.png' type="image" class="edit-menu-icon"></input>
               </a>
             </div>
             <!-- モーダルの中身 -->
-            <div class="modal-main js-modal" id="{{ $timeline->id }}">
+            <div class="modal-main js-modal" id="{{ $timeline->user->id }}">
               <div class="inner">
                 <div class="inner-content">
 

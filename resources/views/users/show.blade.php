@@ -66,10 +66,10 @@
           <div id="top-image2" class="top-image2">
             @if($user->images == 'dawn.png')
             <!-- 初期アイコン -->
-            <p><img src="{{ asset('images/' .$user->images) }}" class="rounded-circle"></p>
+            <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
             @else
             <!-- アップロードしたアイコン -->
-            <p><img src="{{ asset('storage/images/' .$user->images) }}" class="rounded-circle"></p>
+            <p><img src="{{ asset('images/' .$timeline->user->images) }}" class="rounded-circle"></p>
             @endif
           </div>
           <div class="timelines">

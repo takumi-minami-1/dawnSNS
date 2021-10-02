@@ -80,6 +80,7 @@ class UsersController extends Controller
         $following_ids = $follow_ids->pluck('follower')->toArray();
 
         // $timelines = $post->getTimelines($user->id, $following_ids);
+        // dd($following_ids);
         $timelines = $post->getTimeLinesFollow($user->id, $following_ids);
 
         $follow_count = $follow->getFollowCount($user->id);
