@@ -33,11 +33,12 @@ class Post extends Model
     }
 
     // 6.1.2 フォローリスト/フォローユーザーのつぶやき一覧の設置
-    public function getTimeLinesFollow(Int $id, array $follow_ids)
+    public function getTimeLinesFollow(Int $follow_id, array $follow_ids)
     {
-        // $follow_ids[] = $follow_id;
-        $id = Auth::id();
-        $follow_ids[] = Follow::where('follow', $id);
+        $follow_ids[] = $follow_id;
+        // $id = Auth::id();
+        // $follow_ids[] = Follow::where('follow', $id)->get();
+        // dd($follow_ids);
         return $this->where('user_id', $follow_ids)->orderBy('created_at', 'DESC')->get();
     }
 

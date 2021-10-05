@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Follow;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Support\Facades\Log;
 
 class UsersController extends Controller
@@ -81,7 +83,13 @@ class UsersController extends Controller
 
         // $timelines = $post->getTimelines($user->id, $following_ids);
         // dd($following_ids);
-        $timelines = $post->getTimeLinesFollow($user->id, $following_ids);
+        $timelines = DB::table('posts')
+            ->Join('follows', 'posts.user_id', '=', 'follow') //postsテーブルとfollowsテーブルを結合
+            ->Join('users', 'follow', '=', 'users.id') //followsテーブルとusersテーブルを結合
+            ->where('follower', Auth::id()) //自分がフォローしていることが条件
+            ->orderBy('posts.created_at', 'desc')
+            ->select('users.id', 'images', 'username', 'posts', 'posts.created_at')
+            ->get();
 
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
