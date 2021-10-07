@@ -78,18 +78,18 @@ class UsersController extends Controller
     {
         // Log::debug(auth()->user());
         $user = auth()->user();
-        $follow_ids = $follow->followingIds($user->id);
-        $following_ids = $follow_ids->pluck('follower')->toArray();
-
+        // $follow_ids = $follow->followingIds($user->id);
+        // $following_ids = $follow_ids->pluck('follower')->toArray();
         // $timelines = $post->getTimelines($user->id, $following_ids);
         // dd($following_ids);
         $timelines = DB::table('posts')
-            ->Join('follows', 'posts.user_id', '=', 'follow') //postsテーブルとfollowsテーブルを結合
-            ->Join('users', 'follow', '=', 'users.id') //followsテーブルとusersテーブルを結合
-            ->where('follower', Auth::id()) //自分がフォローしていることが条件
+            ->Join('follows', 'posts.user_id', '=', 'follower') //postsテーブルとfollowsテーブルを結合
+            ->Join('users', 'follows.follower', '=', 'users.id') //followsテーブルとusersテーブルを結合
+            ->where('follow', Auth::id()) //自分がフォローしていることが条件
             ->orderBy('posts.created_at', 'desc')
-            ->select('users.id', 'images', 'username', 'posts', 'posts.created_at')
+            ->select('follows.follower', 'images', 'username', 'posts', 'posts.created_at')
             ->get();
+
 
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
@@ -111,10 +111,16 @@ class UsersController extends Controller
     public function followerList(User $user, Follow $follow, Post $post)
     {
         $user = auth()->user();
-        $follower_ids = $follow->followedIds($user->id);
-        $followed_ids = $follower_ids->pluck('follow')->toArray();
-
-        $timeline = $post->getTimelineFollower($user->id, $followed_ids);
+        // $follower_ids = $follow->followedIds($user->id);
+        // $followed_ids = $follower_ids->pluck('follow')->toArray();
+        // $timeline = $post->getTimelineFollower($user->id, $followed_ids);
+        $timeline = DB::table('posts')
+            ->Join('follows', 'posts.user_id', '=', 'follow') //postsテーブルとfollowsテーブルを結合
+            ->Join('users', 'follows.follow', '=', 'users.id') //followsテーブルとusersテーブルを結合
+            ->where('follower', Auth::id()) //誰かがフォローしていることが条件
+            ->orderBy('posts.created_at', 'desc')
+            ->select('follows.follow', 'images', 'username', 'posts', 'posts.created_at')
+            ->get();
 
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);

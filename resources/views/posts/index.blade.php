@@ -67,14 +67,14 @@
             </div>
             <!-- モーダルの中身 -->
             <div class="modal-main js-modal" id="{{ $timeline->user->id }}">
+              <div class="edit-modal-back"></div>
               <div class="inner">
                 <div class="inner-content">
-
                   <!-- 更新処理の実装 -->
                   {!! Form::open(['url' => 'update']) !!}
                   <div class="edit-modal">
                     {!! Form::hidden('id', $timeline->id) !!}
-                    {!! Form::input('text', 'upPost', $timeline->posts, ['required', 'class' => 'form-control-edit']) !!}
+                    {!! Form::input('textarea', 'upPost', $timeline->posts, ['required', 'class' => 'form-control-edit']) !!}
                   </div>
                   <input src='images/edit.png' type="image" class="image-modal"></input>
                   {!! Form::close() !!}

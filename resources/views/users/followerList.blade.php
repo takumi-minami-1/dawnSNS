@@ -4,8 +4,8 @@
 <!-- 6.2.1 フォロワーリスト/フォロワーユーザーのアイコン一覧の設置 -->
 <div class="container">
     <div class="row justify-content-center">
-        <div class="followList-title">Follower list</div>
-        <div class="card-body">
+        <div class="followList-group">
+            <div class="followList-title">Follower list</div>
             <div class="followList-form-group">
                 @if(!empty($data))
                 @foreach($data as $item)
@@ -34,16 +34,16 @@
             <div class="card">
                 <div class="tweet-timelines">
                     <div id="top-image2" class="top-image2">
-                        @if($time->user->images == 'dawn.png')
+                        @if($time->images == 'dawn.png')
                         <!-- 初期アイコン -->
-                        <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('images/' .$time->user->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$time->follow) }}"><img src="{{ asset('images/' .$time->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$time->user->id) }}"><img src="{{ asset('images/' .$time->user->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$time->follow) }}"><img src="{{ asset('images/' .$time->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     <div class="timelines">
-                        <p class="tweets-top-username">{{ $time->user->username }}</p>
+                        <p class="tweets-top-username">{{ $time->username }}</p>
                         <p class="tweets-top-text">{{ $time->posts }}</p>
                     </div>
                     <div class="tweets-top-time">

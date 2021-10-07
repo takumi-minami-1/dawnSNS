@@ -34,9 +34,6 @@
 
         <div class="">
           <div class="users-follow-btn">
-            @if ($user->id === Auth::user()->id)
-            <a href="{{ url('users/' .$user->id .'/edit') }}" class="users-btn-edit users-btn-primary-edit">プロフィールを編集する</a>
-            @else
             @if ($is_following)
             <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
               {{ csrf_field() }}
@@ -50,7 +47,6 @@
 
               <button type="submit" class="users-btn-follow2 users-btn-primary-follow2">フォローする</button>
             </form>
-            @endif
             @endif
           </div>
         </div>

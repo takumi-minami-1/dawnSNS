@@ -36,10 +36,10 @@
                     <div id="top-image2" class="top-image2">
                         @if($timeline->images == 'dawn.png')
                         <!-- 初期アイコン -->
-                        <p><a href="{{ url('users/' .$timeline->id) }}"><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$timeline->follower) }}"><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></a></p>
                         @else
                         <!-- アップロードしたアイコン -->
-                        <p><a href="{{ url('users/' .$timeline->id) }}"><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></a></p>
+                        <p><a href="{{ url('users/' .$timeline->follower) }}"><img src="{{ asset('images/' .$timeline->images) }}" class="rounded-circle"></a></p>
                         @endif
                     </div>
                     <div class="timelines">
