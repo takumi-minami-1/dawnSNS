@@ -22,6 +22,9 @@
         {{ Form::label('UserName',null,['class' => 'Label']) }}
         {{ Form::text('username',null,['class' => 'formText']) }}
       </div>
+      @error('username')
+      <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
 
       <div class="form-item">
         {{ Form::label('MailAddress',null,['class' => 'Label']) }}
